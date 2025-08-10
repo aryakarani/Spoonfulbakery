@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useCart } from "@/context/CartContext";
 import { Plus, ChevronDown } from "lucide-react";
 import { formatCurrency } from "@/utils/format";
@@ -29,12 +28,9 @@ export default function ProductCard({ product }: { product: CardProduct }) {
 
   return (
     <div className="card overflow-hidden">
-      <div className="relative h-48 sm:h-52">
-        <Image src={product.image} alt={product.name} fill className="object-cover" />
-      </div>
       <div className="p-4">
         <h3 className="text-lg font-semibold text-chocolate font-serif">{product.name}</h3>
-        <p className="text-sm text-chocolate/70 mt-1 line-clamp-2">{product.description}</p>
+        <p className="text-sm text-chocolate/70 mt-1 line-clamp-3">{product.description}</p>
         <div className="mt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2">
           <div className="relative w-full sm:w-auto">
             <select
