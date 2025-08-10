@@ -2,17 +2,20 @@
 import { useCart } from "@/context/CartContext";
 import { formatCurrency } from "@/utils/format";
 import { X } from "lucide-react";
-import { buildWhatsAppOrderLink } from "@/utils/site";
+import { SITE, buildWhatsAppOrderLink } from "@/utils/site";
 
 export default function CartDrawer() {
   const { isOpen, closeCart, items, totalAmount, clearCart, totalQuantity } = useCart();
 
   const message = (() => {
-    if (items.length === 0) return "Hello, I would like to place an order.";
-    const lines = items.map((it) => `• ${it.name} × ${it.quantity} = ${formatCurrency(it.price * it.quantity)}`);
-    const total = `Total: ${formatCurrency(totalAmount)}`;
-    return `Hello Spoonful Bakery!\n\nI would like to order:\n${lines.join("\n")}\n\n${total}`;
+    const handle = SITE.instagramUsername ? `\nInstagram: @${SITE.instagramUsername}` : "";
+    if (items.length === 0) return `Spoonful Bakery – New Order\nLocation: Mumbai, India${handle}\n`;
+    const lines = items.map((it, idx) => `${idx + 1}.\t${it.name} × ${it.quantity} — ${formatCurrency(it.price * it.quantity)}`);
+    const subtotal = `\nSubtotal: ${formatCurrency(totalAmount)}`;
+    return `Spoonful Bakery – New Order\nLocation: Mumbai, India${handle}\n\t${lines.join("\n\t")}\n${subtotal}`;
   })();
+
+  const isEmpty = items.length === 0;
 
   return (
     <div className={`fixed inset-0 z-50 transition ${isOpen ? "pointer-events-auto" : "pointer-events-none"}`} aria-hidden={!isOpen}>
@@ -39,16 +42,18 @@ export default function CartDrawer() {
         </div>
         <div className="p-4 border-t space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-chocolate/70">Total</span>
+            <span className="text-chocolate/70">Subtotal</span>
             <span className="text-lg font-semibold text-chocolate">{formatCurrency(totalAmount)}</span>
           </div>
           <div className="flex gap-2">
-            <button className="btn btn-outline w-full" onClick={clearCart}>Clear</button>
+            <button className="btn btn-outline w-full" onClick={clearCart} disabled={isEmpty}>Clear</button>
             <a
               href={buildWhatsAppOrderLink(message)}
               target="_blank"
               rel="noreferrer"
               className="btn btn-primary w-full"
+              aria-disabled={isEmpty}
+              onClick={(e) => { if (isEmpty) e.preventDefault(); }}
             >
               Checkout on WhatsApp
             </a>

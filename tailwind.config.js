@@ -28,6 +28,10 @@ export default {
       },
       boxShadow: {
         soft: '0 8px 30px rgba(0,0,0,0.08)'
+      },
+      fontFamily: {
+        sans: ['var(--font-inter)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-playfair)', 'ui-serif', 'Georgia', 'serif']
       }
     },
   },

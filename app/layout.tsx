@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Merriweather, Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/context/CartContext";
 import CartDrawer from "@/components/CartDrawer";
 
-const serif = Merriweather({ subsets: ["latin"], weight: ["300", "400", "700"] });
-const sans = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata: Metadata = {
   title: "Spoonful Bakery",
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={sans.variable}>
-      <body className={`${serif.className} bg-cream`}>        
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+      <body className={`bg-cream font-sans`}>        
         <CartProvider>
           <Header />
           <main className="container-gutter pt-6 pb-16">{children}</main>

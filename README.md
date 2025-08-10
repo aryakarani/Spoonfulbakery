@@ -1,6 +1,6 @@
 # Spoonful Bakery — Next.js + Netlify Storefront
 
-Modern storefront for Spoonful Bakery with a clean UI, cart, and WhatsApp-only ordering.
+Modern storefront for Spoonful Bakery with a clean UI, boutique typography, cart, and WhatsApp-only ordering.
 
 ## Quick start
 
@@ -19,21 +19,24 @@ Modern storefront for Spoonful Bakery with a clean UI, cart, and WhatsApp-only o
 
 ## Environment
 
-- `NEXT_PUBLIC_WHATSAPP_NUMBER` — digits only, default fallback: `+91 7977264846`
-- `NEXT_PUBLIC_INSTAGRAM_USERNAME` — optional, e.g. `spoonful_bakery` (enables Instagram buttons)
+- `NEXT_PUBLIC_WHATSAPP_NUMBER` — digits only (e.g. `917977264846`)
+- `NEXT_PUBLIC_INSTAGRAM_USERNAME` — optional, e.g. `spoonful.bakery`
+
+## Features
+
+- Typed menu data in `data/menu.ts` matching the live reference site (Jar Menu and Cookies)
+- Inter body and Playfair Display headings via Next.js fonts + Tailwind
+- INR price formatting with `Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' })`
+- Cart with per-size variants and quantities
+- WhatsApp checkout with a pre-filled human-readable order message
 
 ## Deploy to Netlify
 
-- This repo ships with `netlify.toml` and the official Next.js plugin.
-- Set the environment variables in Netlify Site settings → Environment.
-- Deploy; Netlify will run `npm run build` automatically.
-
-## Brand
-
-- Replace `public/logo.svg` with your original logo file named exactly `logo.svg` (or adjust the import in `components/Header.tsx`).
-- Tailwind brand palette is tuned to your logo’s warm blush/brown scheme.
+- Uses `@netlify/plugin-nextjs` via `netlify.toml`
+- Set environment variables in Netlify Site settings → Environment
+- Deploy; Netlify will run `npm run build`
 
 ## Notes
 
-- No online payment is included — checkout is via WhatsApp with a pre-filled order message built from the cart.
-- If Instagram username is set, Instagram CTAs appear in the header, hero and contact sections.
+- All product images are served from `public/images/...` and optimized via Next.js `<Image>`
+- Location references are updated to “Mumbai, India”
