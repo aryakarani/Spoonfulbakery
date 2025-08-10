@@ -51,7 +51,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       }
       return [...prev, item];
     });
-    setIsOpen(true);
+    // Removed automatic cart opening - user stays on page
   };
 
   const removeItem = (id: string) => setItems((prev) => prev.filter((p) => p.id !== id));

@@ -9,9 +9,11 @@ import { useState, useEffect } from "react";
 export default function Header() {
   const { openCart, totalQuantity } = useCart();
   const ig = instagramProfileUrl();
-  const [logoSrc, setLogoSrc] = useState<string>("/logo.svg");
+  const [logoSrc, setLogoSrc] = useState<string>("/logo.png");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [cartAnimating, setCartAnimating] = useState(false);
+  const [prevQuantity, setPrevQuantity] = useState(totalQuantity);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +34,15 @@ export default function Header() {
     };
   }, [mobileMenuOpen]);
 
+  // Animate cart icon when quantity changes
+  useEffect(() => {
+    if (totalQuantity > prevQuantity) {
+      setCartAnimating(true);
+      setTimeout(() => setCartAnimating(false), 600);
+    }
+    setPrevQuantity(totalQuantity);
+  }, [totalQuantity, prevQuantity]);
+
   return (
     <>
       <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'glass shadow-lg' : 'bg-cream/95 backdrop-blur'} safe-top`}>
@@ -43,13 +54,13 @@ export default function Header() {
               width={40} 
               height={40} 
               className="rounded-lg transition-transform group-hover:scale-105" 
-              onError={() => setLogoSrc("/logo.svg")} 
+              onError={() => setLogoSrc("/logo.png")} 
             />
             <div className="flex flex-col">
-              <span className="text-lg font-semibold text-chocolate leading-tight transition-all group-hover:tracking-tight">
+              <span className="text-lg font-semibold text-chocolate leading-tight transition-all group-hover:tracking-tight italic">
                 Spoonful
               </span>
-              <span className="text-xs text-brand-500 font-medium -mt-1">
+              <span className="text-xs text-brand-500 font-medium -mt-1 italic">
                 Bakery
               </span>
             </div>
@@ -86,12 +97,12 @@ export default function Header() {
             </a>
             <button 
               aria-label="Open cart" 
-              className="btn btn-primary relative" 
+              className={`btn btn-primary relative ${cartAnimating ? 'animate-bounce' : ''}`} 
               onClick={openCart}
             >
-              <ShoppingBag className="h-4 w-4" />
+              <ShoppingBag className={`h-4 w-4 ${cartAnimating ? 'animate-pulse' : ''}`} />
               {totalQuantity > 0 && (
-                <span className="absolute -top-1 -right-1 bg-brand-700 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center animate-scale-in">
+                <span className={`absolute -top-1 -right-1 bg-brand-700 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center ${cartAnimating ? 'animate-ping' : 'animate-scale-in'}`}>
                   {totalQuantity}
                 </span>
               )}
@@ -102,12 +113,12 @@ export default function Header() {
           <div className="flex md:hidden items-center gap-2">
             <button 
               aria-label="Open cart" 
-              className="btn btn-primary btn-sm relative touch-target" 
+              className={`btn btn-primary btn-sm relative touch-target ${cartAnimating ? 'animate-bounce' : ''}`} 
               onClick={openCart}
             >
-              <ShoppingBag className="h-4 w-4" />
+              <ShoppingBag className={`h-4 w-4 ${cartAnimating ? 'animate-pulse' : ''}`} />
               {totalQuantity > 0 && (
-                <span className="absolute -top-1 -right-1 bg-brand-700 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center animate-scale-in">
+                <span className={`absolute -top-1 -right-1 bg-brand-700 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center ${cartAnimating ? 'animate-ping' : 'animate-scale-in'}`}>
                   {totalQuantity}
                 </span>
               )}

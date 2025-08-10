@@ -19,19 +19,13 @@ export default function HomePage() {
       <section id="home" className={`rounded-3xl bg-gradient-to-br from-brand-100 via-brand-50 to-cream ring-1 ring-brand-200/50 grain-texture overflow-hidden ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
         <div className="relative">
           {/* Decorative Elements */}
-          <div className="absolute top-4 right-4 text-6xl opacity-10 rotate-12 animate-float">
-            🧁
-          </div>
-          <div className="absolute bottom-4 left-4 text-6xl opacity-10 -rotate-12 animate-float animation-delay-300">
-            🍪
-          </div>
           
           <div className="grid gap-8 items-center p-8 sm:p-12">
             <div className="space-y-6">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/80 backdrop-blur rounded-full text-xs font-medium text-brand-600 animate-slide-up">
                 <Sparkles className="h-3 w-3" />
-                Handcrafted with Love in Mumbai
+                Handcrafted with Love ❤️ in Mumbai
               </div>
               
               <h1 className="text-4xl sm:text-6xl font-bold text-chocolate tracking-tight leading-[1.1] animate-slide-up animation-delay-100">
@@ -81,7 +75,7 @@ export default function HomePage() {
       <section className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
         {[
           { icon: ChefHat, title: "Artisan Made", desc: "Handcrafted daily" },
-          { icon: Heart, title: "Made with Love", desc: "Family recipes" },
+          { icon: Heart, title: "Made with Love ❤️", desc: "Family recipes" },
           { icon: Award, title: "Premium Quality", desc: "Best ingredients" },
           { icon: Clock, title: "Fresh Daily", desc: "Never frozen" }
         ].map((feature, i) => (
@@ -102,7 +96,7 @@ export default function HomePage() {
         <div className="space-y-2">
           <div className="flex items-center gap-2">
             <h2 className="text-3xl sm:text-4xl font-bold text-chocolate">Jar Menu</h2>
-            <span className="text-2xl animate-float">🍯</span>
+            <span className="text-2xl animate-float">🍰</span>
           </div>
           <p className="text-chocolate/60 text-sm">Tap to add to cart, then checkout via WhatsApp</p>
           <p className="text-chocolate/70 text-base">Premium desserts in jars - perfect for gifting or treating yourself</p>

@@ -11,12 +11,10 @@ export default function Footer() {
         {/* About Section */}
         <div className="text-center space-y-4 max-w-2xl mx-auto">
           <div className="flex justify-center items-center gap-2">
-            <span className="text-3xl">🧁</span>
-            <h3 className="text-2xl font-bold text-chocolate">Spoonful Bakery</h3>
-            <span className="text-3xl">🍪</span>
+            <h3 className="text-2xl font-bold text-chocolate italic">Spoonful Bakery</h3>
           </div>
           <p className="text-chocolate/70 text-sm leading-relaxed">
-            Boutique home bakery crafting premium desserts with love. We use real butter, Belgian chocolate, 
+            Boutique home bakery crafting premium desserts with love ❤️. We use real butter, Belgian chocolate, 
             seasonal fruits, and stone-ground whole wheat to create unforgettable treats for your special moments.
           </p>
         </div>
@@ -38,7 +36,7 @@ export default function Footer() {
           <div className="space-y-2">
             <Heart className="h-5 w-5 mx-auto text-brand-500" />
             <h4 className="font-semibold text-chocolate text-sm">Handmade</h4>
-            <p className="text-xs text-chocolate/60">With love</p>
+            <p className="text-xs text-chocolate/60">With love ❤️</p>
           </div>
           
           <div className="space-y-2">

@@ -27,31 +27,12 @@ export default function ProductCard({ product }: { product: CardProduct }) {
       quantity: 1,
     });
     
-    // Show success animation
+    // Show success animation with longer duration
     setIsAdded(true);
-    setTimeout(() => setIsAdded(false), 2000);
+    setTimeout(() => setIsAdded(false), 2500);
   };
 
-  // Get emoji based on product name
-  const getProductEmoji = (name: string) => {
-    const emojis: { [key: string]: string } = {
-      'chocolate': '🍫',
-      'vanilla': '🍦',
-      'strawberry': '🍓',
-      'coffee': '☕',
-      'caramel': '🍮',
-      'cookie': '🍪',
-      'brownie': '🟫',
-      'cake': '🍰',
-      'default': '✨'
-    };
-    
-    const lowerName = name.toLowerCase();
-    for (const [key, emoji] of Object.entries(emojis)) {
-      if (lowerName.includes(key)) return emoji;
-    }
-    return emojis.default;
-  };
+
 
   return (
     <div 
@@ -59,13 +40,6 @@ export default function ProductCard({ product }: { product: CardProduct }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Product Badge */}
-      <div className="absolute top-3 right-3 z-10">
-        <span className="text-2xl opacity-80 group-hover:scale-110 transition-transform">
-          {getProductEmoji(product.name)}
-        </span>
-      </div>
-
       <div className="p-5 space-y-4">
         {/* Product Info */}
         <div className="space-y-2">
@@ -101,10 +75,10 @@ export default function ProductCard({ product }: { product: CardProduct }) {
 
           {/* Add to Cart Button */}
           <button 
-            className={`btn w-full relative overflow-hidden transition-all duration-300 ${
+            className={`btn w-full relative overflow-hidden transition-all duration-300 transform ${
               isAdded 
-                ? 'bg-green-500 hover:bg-green-600 text-white' 
-                : 'btn-primary'
+                ? 'bg-green-500 hover:bg-green-600 text-white scale-105 shadow-xl' 
+                : 'btn-primary hover:scale-102'
             }`} 
             onClick={handleAdd}
           >
@@ -113,8 +87,8 @@ export default function ProductCard({ product }: { product: CardProduct }) {
             }`}>
               {isAdded ? (
                 <>
-                  <Check className="h-4 w-4 mr-2 animate-scale-in" />
-                  Added!
+                  <Check className="h-5 w-5 mr-2 animate-bounce" />
+                  <span className="font-semibold">Added to Cart!</span>
                 </>
               ) : (
                 <>
@@ -124,9 +98,12 @@ export default function ProductCard({ product }: { product: CardProduct }) {
               )}
             </span>
             
-            {/* Ripple effect */}
+            {/* Multiple ripple effects for emphasis */}
             {isAdded && (
-              <span className="absolute inset-0 bg-white/30 animate-ping" />
+              <>
+                <span className="absolute inset-0 bg-white/30 animate-ping" />
+                <span className="absolute inset-0 bg-green-400/20 animate-pulse" />
+              </>
             )}
           </button>
         </div>
