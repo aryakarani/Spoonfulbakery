@@ -2,9 +2,12 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    formats: ["image/avif", "image/webp"],
-    domains: ["images.unsplash.com"]
-  }
+    remotePatterns: [
+      { protocol: 'https', hostname: 'images.unsplash.com' },
+      { protocol: 'https', hostname: 'picsum.photos' },
+    ],
+  },
+  productionBrowserSourceMaps: true,
 };
 
 export default nextConfig;

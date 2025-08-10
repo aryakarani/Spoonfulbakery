@@ -37,7 +37,7 @@ export default function HomePage() {
           </div>
           <div className="relative h-64 sm:h-80 md:h-full">
             <Image
-              src="https://images.unsplash.com/photo-1483695028939-5bca2e19f2d3?q=80&w=1600&auto=format&fit=crop"
+              src="https://picsum.photos/id/292/1600/900"
               alt="Bakery display"
               fill
               className="object-cover rounded-2xl shadow-soft"
@@ -64,7 +64,7 @@ export default function HomePage() {
       <section id="about" className="grid gap-8 md:grid-cols-2 items-center">
         <div className="relative h-64 sm:h-80 md:h-full order-last md:order-first">
           <Image
-            src="https://images.unsplash.com/photo-1483691278019-cb7253bee49f?q=80&w=1600&auto=format&fit=crop"
+            src="https://picsum.photos/id/1080/1600/900"
             alt="Baking in progress"
             fill
             className="object-cover rounded-2xl shadow-soft"
