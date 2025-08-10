@@ -1,0 +1,3 @@
+# Spoonful Bakery — Next.js + Netlify Storefront
+
+Modern storefront for **Spoonful Bakery** with a slick UI, cart, WhatsApp ordering, and optional Razorpay checkout — deployed on **Netlify** (keeps your existing `spoonfulbackery.netlify.app` URL).
