@@ -2,11 +2,11 @@
   command = "npm run build"
   publish = ".next"
 
+[build.environment]
+  NODE_VERSION = "18.17.0"
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-# Redirect all to Next.js server handler (Netlify Next.js Runtime v5)
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/___netlify-server-handler"
-  status = 200
+# Next.js SSR is handled by the Netlify Next.js Runtime v5 via the plugin.
+# No manual SPA catch-all redirect is needed.
