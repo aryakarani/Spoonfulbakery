@@ -5,8 +5,8 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-# Redirect all to Next.js for best SPA support
+# Redirect all to Next.js server handler (Netlify Next.js Runtime v5)
 [[redirects]]
   from = "/*"
-  to = "/.netlify/functions/next"
+  to = "/.netlify/functions/___netlify-server-handler"
   status = 200
