@@ -4,15 +4,17 @@ import Link from "next/link";
 import { ShoppingBag, Phone, Instagram } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { buildWhatsAppOrderLink, instagramProfileUrl } from "@/utils/site";
+import { useState } from "react";
 
 export default function Header() {
   const { openCart, totalQuantity } = useCart();
   const ig = instagramProfileUrl();
+  const [logoSrc, setLogoSrc] = useState<string>("/logo.png");
   return (
     <header className="sticky top-0 z-40 bg-cream/70 backdrop-blur supports-[backdrop-filter]:bg-cream/60 border-b border-black/5">
       <div className="container-gutter h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
-          <Image src="/logo.svg" alt="Spoonful Bakery" width={44} height={44} className="rounded" />
+          <Image src={logoSrc} alt="Spoonful Bakery" width={44} height={44} className="rounded" onError={() => setLogoSrc("/logo.svg")} />
           <span className="text-xl font-semibold text-chocolate group-hover:tracking-tight transition-all font-serif">Spoonful Bakery</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-chocolate/80">
