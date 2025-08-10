@@ -11,13 +11,14 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 bg-cream/70 backdrop-blur supports-[backdrop-filter]:bg-cream/60 border-b border-black/5">
       <div className="container-gutter h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
-          <Image src="/logo.svg" alt="Spoonful Bakery" width={44} height={44} />
-          <span className="text-xl font-bold text-chocolate">Spoonful Bakery</span>
+        <Link href="/" className="flex items-center gap-3 group">
+          <Image src="/logo.svg" alt="Spoonful Bakery" width={44} height={44} className="rounded" />
+          <span className="text-xl font-semibold text-chocolate group-hover:tracking-tight transition-all font-serif">Spoonful Bakery</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-chocolate/80">
-          <a href="#menu" className="hover:text-chocolate">Menu</a>
-          <a href="#about" className="hover:text-chocolate">About</a>
+          <a href="#home" className="hover:text-chocolate">Home</a>
+          <a href="#jars" className="hover:text-chocolate">Jar Menu</a>
+          <a href="#cookies" className="hover:text-chocolate">Cookies</a>
           <a href="#contact" className="hover:text-chocolate">Contact</a>
         </nav>
         <div className="flex items-center gap-2">

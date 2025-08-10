@@ -1,7 +1,7 @@
-export function formatCurrency(amount: number, currency: string = "NGN") {
+export function formatCurrency(amount: number) {
   try {
-    return new Intl.NumberFormat(undefined, { style: "currency", currency }).format(amount);
+    return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(amount);
   } catch {
-    return `${currency} ${amount.toFixed(2)}`;
+    return `₹${Math.round(amount)}`;
   }
 }
