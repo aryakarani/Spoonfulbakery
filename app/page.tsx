@@ -1,10 +1,11 @@
 import Image from "next/image";
 import products from "@/data/products";
 import ProductCard from "@/components/ProductCard";
-import { Phone } from "lucide-react";
+import { Phone, Instagram } from "lucide-react";
+import { buildWhatsAppOrderLink, instagramProfileUrl } from "@/utils/site";
 
 export default function HomePage() {
-  const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "2348012345678";
+  const ig = instagramProfileUrl();
   return (
     <div className="space-y-24">
       {/* Hero */}
@@ -17,15 +18,20 @@ export default function HomePage() {
             <p className="mt-4 text-lg text-chocolate/80 max-w-xl">
               Artisanal cakes, pastries and breads made daily. Order your favorites and pick up in-store or get them delivered.
             </p>
-            <div className="mt-6 flex gap-3">
+            <div className="mt-6 flex gap-3 flex-wrap">
               <a
-                href={`https://wa.me/${whatsapp}`}
+                href={buildWhatsAppOrderLink()}
                 target="_blank"
                 rel="noreferrer"
                 className="btn btn-primary"
               >
                 <Phone className="mr-2 h-4 w-4" /> Order on WhatsApp
               </a>
+              {ig && (
+                <a href={ig} target="_blank" rel="noreferrer" className="btn btn-outline">
+                  <Instagram className="mr-2 h-4 w-4" /> See Instagram
+                </a>
+              )}
               <a href="#menu" className="btn btn-outline">Browse Menu</a>
             </div>
           </div>
@@ -91,13 +97,18 @@ export default function HomePage() {
             <h3 className="text-xl font-semibold text-chocolate">Order</h3>
             <p className="mt-2 text-chocolate/80">WhatsApp us your order and we will confirm quickly.</p>
             <a
-              href={`https://wa.me/${whatsapp}`}
+              href={buildWhatsAppOrderLink()}
               target="_blank"
               rel="noreferrer"
               className="btn btn-primary mt-3 w-fit"
             >
               <Phone className="mr-2 h-4 w-4" /> Chat on WhatsApp
             </a>
+            {ig && (
+              <a href={ig} target="_blank" rel="noreferrer" className="btn btn-outline mt-2 w-fit">
+                <Instagram className="mr-2 h-4 w-4" /> Instagram
+              </a>
+            )}
           </div>
         </div>
       </section>

@@ -1,12 +1,13 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { ShoppingBag, Phone } from "lucide-react";
+import { ShoppingBag, Phone, Instagram } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import { buildWhatsAppOrderLink, instagramProfileUrl } from "@/utils/site";
 
 export default function Header() {
   const { openCart, totalQuantity } = useCart();
-  const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "2348012345678";
+  const ig = instagramProfileUrl();
   return (
     <header className="sticky top-0 z-40 bg-cream/70 backdrop-blur supports-[backdrop-filter]:bg-cream/60 border-b border-black/5">
       <div className="container-gutter h-16 flex items-center justify-between">
@@ -20,8 +21,13 @@ export default function Header() {
           <a href="#contact" className="hover:text-chocolate">Contact</a>
         </nav>
         <div className="flex items-center gap-2">
+          {ig && (
+            <a href={ig} target="_blank" rel="noreferrer" className="hidden sm:inline-flex btn btn-outline">
+              <Instagram className="mr-2 h-4 w-4" /> Instagram
+            </a>
+          )}
           <a
-            href={`https://wa.me/${whatsapp}`}
+            href={buildWhatsAppOrderLink()}
             target="_blank"
             rel="noreferrer"
             className="hidden sm:inline-flex btn btn-outline"

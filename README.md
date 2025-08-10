@@ -19,12 +19,14 @@ Modern storefront for Spoonful Bakery with a clean UI, cart, and WhatsApp-only o
 
 ## Environment
 
-- `NEXT_PUBLIC_WHATSAPP_NUMBER` — digits only, e.g. `2348012345678`
+- `NEXT_PUBLIC_WHATSAPP_NUMBER` — digits only, default fallback: `+91 7977264846`
+- `NEXT_PUBLIC_INSTAGRAM_USERNAME` — optional, e.g. `spoonful_bakery` (enables Instagram buttons)
 
 ## Deploy to Netlify
 
 - This repo ships with `netlify.toml` and the official Next.js plugin.
-- Set `NEXT_PUBLIC_WHATSAPP_NUMBER` in Netlify Site settings → Environment.
+- Set the environment variables in Netlify Site settings → Environment.
+- Deploy; Netlify will run `npm run build` automatically.
 
 ## Brand
 
@@ -33,4 +35,5 @@ Modern storefront for Spoonful Bakery with a clean UI, cart, and WhatsApp-only o
 
 ## Notes
 
-- No online payment is included by design — checkout goes through WhatsApp using a pre-filled order message built from the cart contents.
+- No online payment is included — checkout is via WhatsApp with a pre-filled order message built from the cart.
+- If Instagram username is set, Instagram CTAs appear in the header, hero and contact sections.

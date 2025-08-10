@@ -2,10 +2,10 @@
 import { useCart } from "@/context/CartContext";
 import { formatCurrency } from "@/utils/format";
 import { X } from "lucide-react";
+import { buildWhatsAppOrderLink } from "@/utils/site";
 
 export default function CartDrawer() {
   const { isOpen, closeCart, items, totalAmount, clearCart, totalQuantity } = useCart();
-  const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "2348012345678";
 
   const message = (() => {
     if (items.length === 0) return "Hello, I would like to place an order.";
@@ -45,7 +45,7 @@ export default function CartDrawer() {
           <div className="flex gap-2">
             <button className="btn btn-outline w-full" onClick={clearCart}>Clear</button>
             <a
-              href={`https://wa.me/${whatsapp}?text=${encodeURIComponent(message)}`}
+              href={buildWhatsAppOrderLink(message)}
               target="_blank"
               rel="noreferrer"
               className="btn btn-primary w-full"
