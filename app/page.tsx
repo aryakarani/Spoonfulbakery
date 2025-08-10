@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import menu from "@/data/menu";
 import ProductCard from "@/components/ProductCard";
 import { Phone, Instagram, ChefHat, Heart, Award, Clock, Sparkles, ArrowRight } from "lucide-react";
@@ -8,9 +8,30 @@ import { buildWhatsAppOrderLink, instagramProfileUrl } from "@/utils/site";
 export default function HomePage() {
   const ig = instagramProfileUrl();
   const [isVisible, setIsVisible] = useState(false);
+  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     setIsVisible(true);
+    
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleSections((prev) => new Set(prev).add(entry.target.id));
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    // Observe all sections
+    const sections = document.querySelectorAll('section[id]');
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
   }, []);
 
   return (
@@ -25,7 +46,7 @@ export default function HomePage() {
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/80 backdrop-blur rounded-full text-xs font-medium text-brand-600 animate-slide-up">
                 <Sparkles className="h-3 w-3" />
-                Handcrafted with Love ❤️ in Mumbai
+                Handcrafted with Love in Mumbai
               </div>
               
               <h1 className="text-4xl sm:text-6xl font-bold text-chocolate tracking-tight leading-[1.1] animate-slide-up animation-delay-100">
@@ -72,16 +93,16 @@ export default function HomePage() {
       </section>
 
       {/* Features */}
-      <section className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+      <section id="features" className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
         {[
           { icon: ChefHat, title: "Artisan Made", desc: "Handcrafted daily" },
-          { icon: Heart, title: "Made with Love ❤️", desc: "Family recipes" },
+          { icon: Heart, title: "Made with Love", desc: "Family recipes" },
           { icon: Award, title: "Premium Quality", desc: "Best ingredients" },
           { icon: Clock, title: "Fresh Daily", desc: "Never frozen" }
         ].map((feature, i) => (
           <div 
             key={feature.title}
-            className={`card p-4 sm:p-6 text-center space-y-2 hover:scale-105 transition-all cursor-default ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}
+            className={`card p-4 sm:p-6 text-center space-y-2 tile-interactive ${visibleSections.has('features') ? 'animate-emerge' : 'opacity-0'}`}
             style={{ animationDelay: `${(i + 1) * 100}ms` }}
           >
             <feature.icon className="h-8 w-8 mx-auto text-brand-500" />
@@ -92,7 +113,7 @@ export default function HomePage() {
       </section>
 
       {/* Jars Menu */}
-      <section id="jars" className="space-y-6 sm:space-y-8">
+      <section id="jars" className={`space-y-6 sm:space-y-8 ${visibleSections.has('jars') ? 'scroll-emerge' : 'opacity-0'}`}>
         <div className="space-y-2">
           <div className="flex items-center gap-2">
             <h2 className="text-3xl sm:text-4xl font-bold text-chocolate">Jar Menu</h2>
@@ -106,7 +127,7 @@ export default function HomePage() {
           {menu.find((c) => c.id === "jars")!.items.map((p, i) => (
             <div
               key={p.id}
-              className={`${isVisible ? 'animate-slide-up' : 'opacity-0'}`}
+              className={`${visibleSections.has('jars') ? 'animate-emerge' : 'opacity-0'}`}
               style={{ animationDelay: `${i * 50}ms` }}
             >
               <ProductCard product={p} />
@@ -116,7 +137,7 @@ export default function HomePage() {
       </section>
 
       {/* Cookies Menu */}
-      <section id="cookies" className="space-y-6 sm:space-y-8">
+      <section id="cookies" className={`space-y-6 sm:space-y-8 ${visibleSections.has('cookies') ? 'scroll-emerge' : 'opacity-0'}`}>
         <div className="space-y-2">
           <div className="flex items-center gap-2">
             <h2 className="text-3xl sm:text-4xl font-bold text-chocolate">Cookie Collection</h2>
@@ -130,7 +151,7 @@ export default function HomePage() {
           {menu.find((c) => c.id === "cookies")!.items.map((p, i) => (
             <div
               key={p.id}
-              className={`${isVisible ? 'animate-slide-up' : 'opacity-0'}`}
+              className={`${visibleSections.has('cookies') ? 'animate-emerge' : 'opacity-0'}`}
               style={{ animationDelay: `${i * 50}ms` }}
             >
               <ProductCard product={p} />
@@ -140,7 +161,7 @@ export default function HomePage() {
       </section>
 
       {/* Contact CTA */}
-      <section id="contact" className="rounded-3xl bg-gradient-to-br from-brand-600 to-brand-700 p-8 sm:p-12 text-center text-white grain-texture">
+      <section id="contact" className={`rounded-3xl bg-gradient-to-br from-brand-600 to-brand-700 p-8 sm:p-12 text-center text-white grain-texture ${visibleSections.has('contact') ? 'scroll-emerge' : 'opacity-0'}`}>
         <div className="space-y-6 max-w-2xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold">Ready to Order?</h2>
           <p className="text-white/90 text-lg">
