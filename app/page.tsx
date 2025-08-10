@@ -7,10 +7,10 @@ import { buildWhatsAppOrderLink, instagramProfileUrl } from "@/utils/site";
 export default function HomePage() {
   const ig = instagramProfileUrl();
   return (
-    <div className="space-y-24">
+    <div className="space-y-16 sm:space-y-24">
       {/* Hero */}
       <section id="home" className="relative overflow-hidden rounded-3xl bg-brand-100 ring-1 ring-brand-200">
-        <div className="grid gap-8 md:grid-cols-2 items-center p-8 sm:p-12">
+        <div className="grid gap-8 md:grid-cols-2 items-center p-6 sm:p-12">
           <div>
             <h1 className="text-4xl sm:text-5xl font-bold text-chocolate tracking-tight font-serif">
               Premium artisan desserts
@@ -37,7 +37,7 @@ export default function HomePage() {
           </div>
           <div className="relative h-64 sm:h-80 md:h-full">
             <Image
-              src="/images/hero/hero-jars.jpg"
+              src="/images/about/baking.jpg"
               alt="Assorted jar desserts and cookies"
               fill
               className="object-cover rounded-2xl shadow-soft"
