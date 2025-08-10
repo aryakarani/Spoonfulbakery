@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 export default function Header() {
   const { openCart, totalQuantity } = useCart();
   const ig = instagramProfileUrl();
-  const [logoSrc, setLogoSrc] = useState<string>("/logo.svg");
+  const [logoSrc, setLogoSrc] = useState<string>("/logo.png");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -43,13 +43,13 @@ export default function Header() {
               width={40} 
               height={40} 
               className="rounded-lg transition-transform group-hover:scale-105" 
-              onError={() => setLogoSrc("/logo.svg")} 
+              onError={() => setLogoSrc("/logo.png")} 
             />
             <div className="flex flex-col">
-              <span className="text-lg font-semibold text-chocolate leading-tight transition-all group-hover:tracking-tight">
+              <span className="text-lg font-semibold text-chocolate leading-tight transition-all group-hover:tracking-tight italic">
                 Spoonful
               </span>
-              <span className="text-xs text-brand-500 font-medium -mt-1">
+              <span className="text-xs text-brand-500 font-medium -mt-1 italic">
                 Bakery
               </span>
             </div>

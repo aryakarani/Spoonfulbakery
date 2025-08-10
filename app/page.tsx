@@ -19,12 +19,6 @@ export default function HomePage() {
       <section id="home" className={`rounded-3xl bg-gradient-to-br from-brand-100 via-brand-50 to-cream ring-1 ring-brand-200/50 grain-texture overflow-hidden ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
         <div className="relative">
           {/* Decorative Elements */}
-          <div className="absolute top-4 right-4 text-6xl opacity-10 rotate-12 animate-float">
-            🧁
-          </div>
-          <div className="absolute bottom-4 left-4 text-6xl opacity-10 -rotate-12 animate-float animation-delay-300">
-            🍪
-          </div>
           
           <div className="grid gap-8 items-center p-8 sm:p-12">
             <div className="space-y-6">
@@ -102,7 +96,6 @@ export default function HomePage() {
         <div className="space-y-2">
           <div className="flex items-center gap-2">
             <h2 className="text-3xl sm:text-4xl font-bold text-chocolate">Jar Menu</h2>
-            <span className="text-2xl animate-float">🍯</span>
           </div>
           <p className="text-chocolate/60 text-sm">Tap to add to cart, then checkout via WhatsApp</p>
           <p className="text-chocolate/70 text-base">Premium desserts in jars - perfect for gifting or treating yourself</p>
@@ -126,7 +119,6 @@ export default function HomePage() {
         <div className="space-y-2">
           <div className="flex items-center gap-2">
             <h2 className="text-3xl sm:text-4xl font-bold text-chocolate">Cookie Collection</h2>
-            <span className="text-2xl animate-float animation-delay-200">🍪</span>
           </div>
           <p className="text-chocolate/60 text-sm">Freshly baked, wholesome goodness</p>
           <p className="text-chocolate/70 text-base">Artisanal cookies made with whole grains and raw sugar</p>

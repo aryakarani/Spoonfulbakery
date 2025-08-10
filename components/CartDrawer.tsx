@@ -53,7 +53,6 @@ export default function CartDrawer() {
         <div className="flex-1 overflow-y-auto h-[calc(100%-200px)]">
           {isEmpty ? (
             <div className="flex flex-col items-center justify-center h-full p-8 text-center">
-              <div className="text-6xl mb-4 animate-float">🛒</div>
               <p className="text-chocolate/70 font-medium">Your cart is empty</p>
               <p className="text-sm text-chocolate/50 mt-2">Add some delicious treats from our menu!</p>
             </div>

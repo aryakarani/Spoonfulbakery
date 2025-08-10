@@ -32,26 +32,7 @@ export default function ProductCard({ product }: { product: CardProduct }) {
     setTimeout(() => setIsAdded(false), 2000);
   };
 
-  // Get emoji based on product name
-  const getProductEmoji = (name: string) => {
-    const emojis: { [key: string]: string } = {
-      'chocolate': '🍫',
-      'vanilla': '🍦',
-      'strawberry': '🍓',
-      'coffee': '☕',
-      'caramel': '🍮',
-      'cookie': '🍪',
-      'brownie': '🟫',
-      'cake': '🍰',
-      'default': '✨'
-    };
-    
-    const lowerName = name.toLowerCase();
-    for (const [key, emoji] of Object.entries(emojis)) {
-      if (lowerName.includes(key)) return emoji;
-    }
-    return emojis.default;
-  };
+
 
   return (
     <div 
@@ -59,13 +40,6 @@ export default function ProductCard({ product }: { product: CardProduct }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Product Badge */}
-      <div className="absolute top-3 right-3 z-10">
-        <span className="text-2xl opacity-80 group-hover:scale-110 transition-transform">
-          {getProductEmoji(product.name)}
-        </span>
-      </div>
-
       <div className="p-5 space-y-4">
         {/* Product Info */}
         <div className="space-y-2">
