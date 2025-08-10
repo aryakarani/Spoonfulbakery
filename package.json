@@ -9,6 +9,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint || echo 'lint skipped'",
+    "preview": "next start",
+    "typecheck": "tsc -noEmit || echo 'no TS'",
+    "test:runtime": "node ./scripts/runtime-check.mjs",
+    "doctor": "npm run build && npm run test:runtime",
     "deploy:netlify": "netlify deploy --build --prod --site spoonfulbakery"
   },
   "dependencies": {
@@ -27,6 +31,7 @@
     "postcss": "8.4.38",
     "tailwindcss": "3.4.7",
     "typescript": "^5.4.5",
-    "netlify-cli": "^17.37.2"
+    "netlify-cli": "^17.37.2",
+    "puppeteer": "^23.7.0"
   }
 }
