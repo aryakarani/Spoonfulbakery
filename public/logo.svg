@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 64" role="img" aria-label="Spoonful Bakery logo">
+  <rect width="256" height="64" fill="#EFB9AF" rx="16"/>
+  <g fill="#4D2722" font-family="Georgia, 'Times New Roman', serif" font-weight="700">
+    <text x="72" y="41" font-size="28">Spoonful</text>
+  </g>
+  <g stroke="#4D2722" stroke-width="2" fill="none" transform="translate(18,10)">
+    <path d="M16 2c4 0 8 4 8 8s-4 8-8 8-8-4-8-8 4-8 8-8zm0 16v24"/>
+  </g>
+</svg>
