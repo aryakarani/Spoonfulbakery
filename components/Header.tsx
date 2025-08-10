@@ -12,6 +12,8 @@ export default function Header() {
   const [logoSrc, setLogoSrc] = useState<string>("/logo.png");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [cartAnimating, setCartAnimating] = useState(false);
+  const [prevQuantity, setPrevQuantity] = useState(totalQuantity);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,6 +33,15 @@ export default function Header() {
       document.body.style.overflow = 'unset';
     };
   }, [mobileMenuOpen]);
+
+  // Animate cart icon when quantity changes
+  useEffect(() => {
+    if (totalQuantity > prevQuantity) {
+      setCartAnimating(true);
+      setTimeout(() => setCartAnimating(false), 600);
+    }
+    setPrevQuantity(totalQuantity);
+  }, [totalQuantity, prevQuantity]);
 
   return (
     <>
@@ -86,12 +97,12 @@ export default function Header() {
             </a>
             <button 
               aria-label="Open cart" 
-              className="btn btn-primary relative" 
+              className={`btn btn-primary relative ${cartAnimating ? 'animate-bounce' : ''}`} 
               onClick={openCart}
             >
-              <ShoppingBag className="h-4 w-4" />
+              <ShoppingBag className={`h-4 w-4 ${cartAnimating ? 'animate-pulse' : ''}`} />
               {totalQuantity > 0 && (
-                <span className="absolute -top-1 -right-1 bg-brand-700 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center animate-scale-in">
+                <span className={`absolute -top-1 -right-1 bg-brand-700 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center ${cartAnimating ? 'animate-ping' : 'animate-scale-in'}`}>
                   {totalQuantity}
                 </span>
               )}
@@ -102,12 +113,12 @@ export default function Header() {
           <div className="flex md:hidden items-center gap-2">
             <button 
               aria-label="Open cart" 
-              className="btn btn-primary btn-sm relative touch-target" 
+              className={`btn btn-primary btn-sm relative touch-target ${cartAnimating ? 'animate-bounce' : ''}`} 
               onClick={openCart}
             >
-              <ShoppingBag className="h-4 w-4" />
+              <ShoppingBag className={`h-4 w-4 ${cartAnimating ? 'animate-pulse' : ''}`} />
               {totalQuantity > 0 && (
-                <span className="absolute -top-1 -right-1 bg-brand-700 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center animate-scale-in">
+                <span className={`absolute -top-1 -right-1 bg-brand-700 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center ${cartAnimating ? 'animate-ping' : 'animate-scale-in'}`}>
                   {totalQuantity}
                 </span>
               )}
