@@ -10,14 +10,14 @@ export default function AnnouncementMarquee() {
   ];
 
   return (
-    <div className="sticky top-16 md:top-16 z-30 bg-gradient-to-r from-green-600 to-green-700 text-white shadow-md">
-      <div className="py-2.5">
+    <div className="bg-gradient-to-r from-earth-600 to-earth-700 text-white shadow-md rounded-2xl overflow-hidden">
+      <div className="py-3">
         <div className="marquee" aria-label="Site announcement">
           <div className="marquee-content">
             {[...messages, ...messages, ...messages].map((msg, i) => (
-              <span key={i} className="inline-flex items-center gap-2 mx-6">
-                <msg.icon className="h-3.5 w-3.5" />
-                <span className="text-xs font-medium tracking-wide">{msg.text}</span>
+              <span key={i} className="inline-flex items-center gap-2 mx-8">
+                <msg.icon className="h-4 w-4" />
+                <span className="text-sm font-medium tracking-wide">{msg.text}</span>
               </span>
             ))}
           </div>

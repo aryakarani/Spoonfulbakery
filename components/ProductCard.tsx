@@ -1,8 +1,9 @@
 "use client";
 import { useCart } from "@/context/CartContext";
-import { Plus, ChevronDown, Check, ShoppingBag } from "lucide-react";
+import { Plus, ChevronDown, Check, ShoppingBag, ImageIcon } from "lucide-react";
 import { formatCurrency } from "@/utils/format";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 
 export type PriceOption = { size: string; price: number };
 export type CardProduct = {
@@ -18,6 +19,31 @@ export default function ProductCard({ product }: { product: CardProduct }) {
   const [selected, setSelected] = useState<PriceOption>(product.prices[0]);
   const [isAdded, setIsAdded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [imageError, setImageError] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  // Magic scroll effect
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
 
   const handleAdd = () => {
     addItem({
@@ -32,18 +58,56 @@ export default function ProductCard({ product }: { product: CardProduct }) {
     setTimeout(() => setIsAdded(false), 2500);
   };
 
-
+  // Generate image path based on product id
+  const imagePath = `/images/products/${product.id}.jpg`;
+  const fallbackImagePath = `/images/products/placeholder.jpg`;
 
   return (
     <div 
-      className="card overflow-hidden group relative transition-all duration-300"
+      ref={cardRef}
+      className={`card overflow-hidden group relative transition-all duration-500 bg-white hover:shadow-xl ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
+      {/* Product Image Section */}
+      <div className="relative h-48 sm:h-56 bg-gradient-to-br from-sand to-earth-50 overflow-hidden">
+        {!imageError ? (
+          <Image
+            src={imagePath}
+            alt={product.name}
+            fill
+            className={`object-cover transition-transform duration-700 ${
+              isHovered ? 'scale-110' : 'scale-100'
+            }`}
+            onError={() => setImageError(true)}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center space-y-3">
+              <ImageIcon className="h-12 w-12 text-earth-300 mx-auto" />
+              <div className="px-4">
+                <p className="text-xs text-chocolate/50 font-medium">Add image to:</p>
+                <p className="text-xs text-earth-600 font-mono bg-white/80 px-2 py-1 rounded mt-1">
+                  /public{imagePath}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {/* Overlay gradient on hover */}
+        <div className={`absolute inset-0 bg-gradient-to-t from-black/40 to-transparent transition-opacity duration-300 ${
+          isHovered ? 'opacity-100' : 'opacity-0'
+        }`} />
+      </div>
+
       <div className="p-5 space-y-4">
         {/* Product Info */}
         <div className="space-y-2">
-          <h3 className="text-lg font-semibold text-chocolate leading-tight pr-8">
+          <h3 className="text-lg font-semibold text-chocolate leading-tight">
             {product.name}
           </h3>
           <p className="text-sm text-chocolate/60 line-clamp-2 leading-relaxed">
@@ -57,7 +121,7 @@ export default function ProductCard({ product }: { product: CardProduct }) {
           <div className="relative">
             <select
               aria-label="Select size"
-              className="w-full appearance-none bg-brand-50 border border-brand-200 rounded-2xl px-4 py-3 pr-10 text-sm font-medium text-chocolate focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent transition-all cursor-pointer hover:bg-brand-100"
+              className="w-full appearance-none bg-sand border border-earth-200 rounded-2xl px-4 py-3 pr-10 text-sm font-medium text-chocolate focus:outline-none focus:ring-2 focus:ring-earth-400 focus:border-transparent transition-all cursor-pointer hover:bg-earth-50"
               value={selected.size}
               onChange={(e) => {
                 const opt = product.prices.find((p) => p.size === e.target.value)!;
@@ -109,10 +173,10 @@ export default function ProductCard({ product }: { product: CardProduct }) {
         </div>
 
         {/* Price Display */}
-        <div className="pt-3 border-t border-brand-100">
+        <div className="pt-3 border-t border-earth-100">
           <div className="flex items-baseline justify-between">
             <span className="text-xs text-chocolate/50 font-medium">Starting from</span>
-            <span className="text-xl font-bold text-brand-600">
+            <span className="text-xl font-bold text-earth-600">
               {formatCurrency(selected.price)}
             </span>
           </div>
@@ -120,7 +184,7 @@ export default function ProductCard({ product }: { product: CardProduct }) {
       </div>
 
       {/* Hover Effect Overlay */}
-      <div className={`absolute inset-0 bg-gradient-to-t from-brand-100/20 to-transparent pointer-events-none transition-opacity duration-300 ${
+      <div className={`absolute inset-0 bg-gradient-to-t from-earth-100/20 to-transparent pointer-events-none transition-opacity duration-300 ${
         isHovered ? 'opacity-100' : 'opacity-0'
       }`} />
     </div>

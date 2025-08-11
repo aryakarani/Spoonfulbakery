@@ -45,7 +45,7 @@ export default function Header() {
 
   return (
     <>
-      <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'glass shadow-lg' : 'bg-cream/95 backdrop-blur'} safe-top`}>
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'glass shadow-lg' : 'bg-white/95 backdrop-blur shadow-sm'} safe-top`}>
         <div className="container-gutter h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group" onClick={() => setMobileMenuOpen(false)}>
             <Image 
@@ -57,10 +57,10 @@ export default function Header() {
               onError={() => setLogoSrc("/logo.png")} 
             />
             <div className="flex flex-col">
-              <span className="brand-name text-2xl text-chocolate leading-tight transition-all group-hover:tracking-tight">
+              <span className="brand-name text-2xl text-brand-700 leading-tight transition-all group-hover:tracking-tight">
                 Spoonful
               </span>
-              <span className="brand-name text-lg text-brand-500 -mt-2">
+              <span className="brand-name text-lg text-earth-500 -mt-2">
                 Bakery
               </span>
             </div>
@@ -102,7 +102,7 @@ export default function Header() {
             >
               <ShoppingBag className={`h-4 w-4 ${cartAnimating ? 'animate-pulse' : ''}`} />
               {totalQuantity > 0 && (
-                <span className={`absolute -top-1 -right-1 bg-brand-700 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center ${cartAnimating ? 'animate-ping' : 'animate-scale-in'}`}>
+                <span className={`absolute -top-1 -right-1 bg-earth-700 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center ${cartAnimating ? 'animate-ping' : 'animate-scale-in'}`}>
                   {totalQuantity}
                 </span>
               )}
@@ -118,7 +118,7 @@ export default function Header() {
             >
               <ShoppingBag className={`h-4 w-4 ${cartAnimating ? 'animate-pulse' : ''}`} />
               {totalQuantity > 0 && (
-                <span className={`absolute -top-1 -right-1 bg-brand-700 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center ${cartAnimating ? 'animate-ping' : 'animate-scale-in'}`}>
+                <span className={`absolute -top-1 -right-1 bg-earth-700 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center ${cartAnimating ? 'animate-ping' : 'animate-scale-in'}`}>
                   {totalQuantity}
                 </span>
               )}
@@ -134,13 +134,13 @@ export default function Header() {
         </div>
 
         {/* Mobile Social Links Bar */}
-        <div className="md:hidden border-t border-brand-100 px-4 py-2 flex items-center justify-center gap-4 bg-gradient-to-r from-brand-50 to-cream">
+        <div className="md:hidden border-t border-earth-100 px-4 py-2 flex items-center justify-center gap-4 bg-gradient-to-r from-sand to-white">
           {ig && (
             <a 
               href={ig} 
               target="_blank" 
               rel="noreferrer" 
-              className="inline-flex items-center gap-2 text-xs font-medium text-brand-600 hover:text-brand-700"
+              className="inline-flex items-center gap-2 text-xs font-medium text-earth-600 hover:text-earth-700"
             >
               <Instagram className="h-3.5 w-3.5" />
               Instagram
@@ -150,7 +150,7 @@ export default function Header() {
             href={buildWhatsAppOrderLink()}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 text-xs font-medium text-brand-600 hover:text-brand-700"
+            className="inline-flex items-center gap-2 text-xs font-medium text-earth-600 hover:text-earth-700"
           >
             <Phone className="h-3.5 w-3.5" />
             WhatsApp
@@ -186,7 +186,7 @@ export default function Header() {
             <div className="space-y-1">
               <a 
                 href="#home" 
-                className="flex items-center gap-3 px-4 py-3 rounded-xl text-chocolate/80 hover:text-chocolate hover:bg-brand-50 transition-colors"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl text-chocolate/80 hover:text-chocolate hover:bg-earth-50 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <Home className="h-5 w-5" />
@@ -194,7 +194,7 @@ export default function Header() {
               </a>
               <a 
                 href="#jars" 
-                className="flex items-center gap-3 px-4 py-3 rounded-xl text-chocolate/80 hover:text-chocolate hover:bg-brand-50 transition-colors"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl text-chocolate/80 hover:text-chocolate hover:bg-earth-50 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <Package className="h-5 w-5" />
@@ -202,7 +202,7 @@ export default function Header() {
               </a>
               <a 
                 href="#cookies" 
-                className="flex items-center gap-3 px-4 py-3 rounded-xl text-chocolate/80 hover:text-chocolate hover:bg-brand-50 transition-colors"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl text-chocolate/80 hover:text-chocolate hover:bg-earth-50 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <Cookie className="h-5 w-5" />
@@ -210,7 +210,7 @@ export default function Header() {
               </a>
               <a 
                 href="#contact" 
-                className="flex items-center gap-3 px-4 py-3 rounded-xl text-chocolate/80 hover:text-chocolate hover:bg-brand-50 transition-colors"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl text-chocolate/80 hover:text-chocolate hover:bg-earth-50 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <Phone className="h-5 w-5" />
@@ -218,7 +218,7 @@ export default function Header() {
               </a>
             </div>
 
-            <div className="pt-6 border-t border-brand-100 space-y-3">
+            <div className="pt-6 border-t border-earth-100 space-y-3">
               {ig && (
                 <a 
                   href={ig} 
