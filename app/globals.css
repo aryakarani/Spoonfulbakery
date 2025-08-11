@@ -12,6 +12,11 @@
   --brand-soft: #FAF7F5;
   --brand-sage: #028E41;
   --brand-earth: #895129;
+  --brand-vibrant-orange: #FF6B35;
+  --brand-vibrant-pink: #FF1744;
+  --brand-vibrant-purple: #9C27B0;
+  --brand-vibrant-teal: #00BCD4;
+  --brand-vibrant-yellow: #FFD600;
   --shadow-color: 24deg 10% 50%;
   --shadow-elevation-low:
     0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.03),
@@ -549,4 +554,55 @@ p, .body-text {
 
 .gradient-earth {
   background: linear-gradient(135deg, rgba(137, 81, 41, 0.06) 0%, rgba(2, 142, 65, 0.08) 100%);
+}
+
+.gradient-vibrant {
+  background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+}
+
+.gradient-sunset {
+  background: linear-gradient(135deg, #FF1744 0%, #FF6B35 50%, #FFD600 100%);
+}
+
+.gradient-tropical {
+  background: linear-gradient(135deg, #00BCD4 0%, #4CAF50 50%, #FFD600 100%);
+}
+
+.gradient-berry {
+  background: linear-gradient(135deg, #9C27B0 0%, #FF1744 100%);
+}
+
+.gradient-warm-vibrant {
+  background: linear-gradient(135deg, #FF6B35 0%, #FFD600 50%, #4CAF50 100%);
+}
+
+.text-vibrant-orange {
+  color: #FF6B35;
+}
+
+.text-vibrant-pink {
+  color: #FF1744;
+}
+
+.bg-vibrant-orange {
+  background-color: #FF6B35;
+}
+
+.bg-vibrant-pink {
+  background-color: #FF1744;
+}
+
+.bg-vibrant-teal {
+  background-color: #00BCD4;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
