@@ -70,7 +70,13 @@ export default {
         terracotta: '#895129',
         // Minimal additions
         pearl: '#FFFFFF',
-        charcoal: '#1A1815'
+        charcoal: '#1A1815',
+        // Muted cohesive colors
+        coral: '#E57A5D',
+        peach: '#F5A081',
+        mint: '#7FC4A0',
+        gold: '#D4A574',
+        rose: '#D08C7F'
       },
       boxShadow: {
         soft: '0 4px 20px rgba(0,0,0,0.04)',

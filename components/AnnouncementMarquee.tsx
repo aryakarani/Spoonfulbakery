@@ -3,7 +3,7 @@ import { Leaf, Heart, Award } from "lucide-react";
 
 export default function AnnouncementMarquee() {
   const messages = [
-    { icon: Leaf, text: "100% Vegetarian & Vegan Options" },
+    { icon: Leaf, text: "|| 100% Vegetarian || Vegan Options Available" },
     { icon: Heart, text: "No Palm Oil or Margarine" },
     { icon: Award, text: "No Artificial Colors or Flavors" },
     { icon: Heart, text: "Made with Real Belgian Chocolate" },
