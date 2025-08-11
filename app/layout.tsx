@@ -20,11 +20,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className={`bg-cream font-sans`}>
+      <body className={`bg-white font-sans`}>
         <CartProvider>
           <Header />
-          <AnnouncementMarquee />
-          <main className="container-gutter pt-6 pb-16">{children}</main>
+          <main className="container-gutter pt-24 md:pt-20 pb-16">{children}</main>
           <Footer />
           <CartDrawer />
           <CartNotification />

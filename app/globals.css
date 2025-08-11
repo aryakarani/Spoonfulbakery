@@ -5,30 +5,30 @@
 @tailwind utilities;
 
 :root {
-  --brand-bg: #FFF7F2;
-  --brand-ink: #4D2722;
-  --brand-accent: #C6796B;
+  --brand-bg: #FFFFFF;
+  --brand-ink: #3A322C;
+  --brand-accent: #7FA55F;
   --brand-warm: #D4A574;
-  --brand-soft: #F5E6D3;
-  --shadow-color: 24deg 20% 50%;
+  --brand-soft: #F5F2ED;
+  --shadow-color: 24deg 10% 50%;
   --shadow-elevation-low:
-    0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.1),
-    0.4px 0.8px 1px -1.2px hsl(var(--shadow-color) / 0.1),
-    1px 2px 2.5px -2.5px hsl(var(--shadow-color) / 0.1);
+    0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.05),
+    0.4px 0.8px 1px -1.2px hsl(var(--shadow-color) / 0.05),
+    1px 2px 2.5px -2.5px hsl(var(--shadow-color) / 0.05);
   --shadow-elevation-medium:
-    0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.11),
-    0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.11),
-    2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.11),
-    5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.11);
+    0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.06),
+    0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.06),
+    2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.06),
+    5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.06);
   --shadow-elevation-high:
-    0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.1),
-    1.5px 2.9px 3.7px -0.4px hsl(var(--shadow-color) / 0.1),
-    2.7px 5.4px 6.8px -0.7px hsl(var(--shadow-color) / 0.1),
-    4.5px 8.9px 11.2px -1.1px hsl(var(--shadow-color) / 0.1),
-    7.1px 14.3px 18px -1.4px hsl(var(--shadow-color) / 0.1),
-    11.2px 22.3px 28.1px -1.8px hsl(var(--shadow-color) / 0.1),
-    17px 33.9px 42.7px -2.1px hsl(var(--shadow-color) / 0.1),
-    25px 50px 62.9px -2.5px hsl(var(--shadow-color) / 0.1);
+    0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.05),
+    1.5px 2.9px 3.7px -0.4px hsl(var(--shadow-color) / 0.05),
+    2.7px 5.4px 6.8px -0.7px hsl(var(--shadow-color) / 0.05),
+    4.5px 8.9px 11.2px -1.1px hsl(var(--shadow-color) / 0.05),
+    7.1px 14.3px 18px -1.4px hsl(var(--shadow-color) / 0.05),
+    11.2px 22.3px 28.1px -1.8px hsl(var(--shadow-color) / 0.05),
+    17px 33.9px 42.7px -2.1px hsl(var(--shadow-color) / 0.05),
+    25px 50px 62.9px -2.5px hsl(var(--shadow-color) / 0.05);
 }
 
 * {
@@ -48,7 +48,7 @@ body {
 }
 
 body {
-  @apply bg-cream text-chocolate antialiased;
+  @apply bg-white text-chocolate antialiased;
   font-family: 'Lato', system-ui, -apple-system, sans-serif;
   font-optical-sizing: auto;
 }
@@ -84,17 +84,17 @@ p, .body-text {
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-brand-300 rounded-full;
+  @apply bg-earth-300 rounded-full;
 }
 
 /* Container and spacing */
 .container-gutter {
-  @apply px-4 sm:px-6 lg:px-8;
+  @apply px-6 sm:px-8 lg:px-12;
 }
 
 /* Button styles with enhanced interactions */
 .btn {
-  @apply inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 active:scale-95 touch-manipulation select-none;
+  @apply inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-earth-400 focus-visible:ring-offset-2 active:scale-95 touch-manipulation select-none;
   font-family: 'Lato', system-ui, sans-serif;
   font-weight: 500;
 }
@@ -108,21 +108,21 @@ p, .body-text {
 }
 
 .btn-primary {
-  @apply bg-gradient-to-b from-brand-500 to-brand-600 text-white shadow-lg hover:shadow-xl hover:from-brand-600 hover:to-brand-700;
-  box-shadow: var(--shadow-elevation-medium);
+  @apply bg-gradient-to-b from-earth-500 to-earth-600 text-white shadow-md hover:shadow-lg hover:from-earth-600 hover:to-earth-700;
+  box-shadow: var(--shadow-elevation-low);
 }
 
 .btn-primary:hover {
-  box-shadow: var(--shadow-elevation-high);
+  box-shadow: var(--shadow-elevation-medium);
   transform: translateY(-1px);
 }
 
 .btn-outline {
-  @apply border border-brand-300 text-brand-700 hover:bg-brand-50 hover:border-brand-400;
+  @apply border border-earth-300 text-earth-700 hover:bg-earth-50 hover:border-earth-400;
 }
 
 .btn-ghost {
-  @apply text-brand-700 hover:bg-brand-50;
+  @apply text-earth-700 hover:bg-earth-50;
 }
 
 /* Card styles with depth */
@@ -142,7 +142,7 @@ p, .body-text {
 
 /* Glass morphism for mobile header */
 .glass {
-  @apply bg-white/70 backdrop-blur-xl backdrop-saturate-150;
+  @apply bg-white/85 backdrop-blur-xl backdrop-saturate-150;
   -webkit-backdrop-filter: blur(20px) saturate(150%);
 }
 
@@ -214,6 +214,47 @@ p, .body-text {
   75% { transform: translateX(5px); }
 }
 
+/* Parallax animation for decorative elements */
+@keyframes parallax {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-5px) translateX(2px); }
+  50% { transform: translateY(0) translateX(-2px); }
+  75% { transform: translateY(5px) translateX(1px); }
+}
+
+/* Magic scroll reveal animations */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.magic-scroll {
+  opacity: 0;
+  animation: reveal-up 0.8s ease-out forwards;
+}
+
+.magic-scroll-scale {
+  opacity: 0;
+  animation: reveal-scale 0.8s ease-out forwards;
+}
+
 /* Scroll emergence animation */
 .scroll-emerge {
   opacity: 0;
@@ -256,7 +297,7 @@ p, .body-text {
   transform: scale(1.02);
 }
 
-/* Marquee band */
+/* Marquee band - slower animation */
 @keyframes marquee-x {
   0% { transform: translateX(0); }
   100% { transform: translateX(-100%); }
@@ -270,7 +311,7 @@ p, .body-text {
 
 .marquee-content { 
   display: inline-block; 
-  animation: marquee-x 40s linear infinite;
+  animation: marquee-x 80s linear infinite;
   will-change: transform;
 }
 
@@ -290,7 +331,7 @@ p, .body-text {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(139, 69, 19, 0) 0%, rgba(139, 69, 19, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(127, 165, 95, 0) 0%, rgba(127, 165, 95, 0.05) 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -329,7 +370,7 @@ p, .body-text {
 
 /* Loading skeleton */
 .skeleton {
-  @apply bg-gradient-to-r from-brand-100 via-brand-50 to-brand-100 bg-[length:200%_100%] animate-[shimmer_1.5s_ease-in-out_infinite];
+  @apply bg-gradient-to-r from-sand via-white to-sand bg-[length:200%_100%] animate-[shimmer_1.5s_ease-in-out_infinite];
 }
 
 @keyframes shimmer {
@@ -349,7 +390,7 @@ p, .body-text {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.03;
+  opacity: 0.02;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   pointer-events: none;
   border-radius: inherit;
