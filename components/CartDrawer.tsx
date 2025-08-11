@@ -8,11 +8,24 @@ export default function CartDrawer() {
   const { isOpen, closeCart, items, totalAmount, clearCart, totalQuantity, updateQuantity, removeItem } = useCart();
 
   const message = (() => {
-    const handle = SITE.instagramUsername ? `\nInstagram: @${SITE.instagramUsername}` : "";
-    if (items.length === 0) return `Spoonful Bakery – New Order\nLocation: Mumbai, India${handle}\n`;
-    const lines = items.map((it, idx) => `${idx + 1}.\t${it.name} × ${it.quantity} — ${formatCurrency(it.price * it.quantity)}`);
-    const subtotal = `\nSubtotal: ${formatCurrency(totalAmount)}`;
-    return `Spoonful Bakery – New Order\nLocation: Mumbai, India${handle}\n\t${lines.join("\n\t")}\n${subtotal}`;
+    if (items.length === 0) return `New Order Request`;
+    
+    // Get current date and time in India timezone
+    const indiaTime = new Date().toLocaleString('en-IN', {
+      timeZone: 'Asia/Kolkata',
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true
+    });
+    
+    const lines = items.map((it) => `• ${it.name} × ${it.quantity} = ${formatCurrency(it.price * it.quantity)}`);
+    const orderDetails = lines.join("\n");
+    const total = `Total: ${formatCurrency(totalAmount)}`;
+    
+    return `Order Date & Time: ${indiaTime}\n\n${orderDetails}\n\n${total}`;
   })();
 
   const isEmpty = items.length === 0;

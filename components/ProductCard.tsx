@@ -1,8 +1,8 @@
 "use client";
 import { useCart } from "@/context/CartContext";
-import { Plus, ChevronDown, Check, ShoppingBag, ImageIcon } from "lucide-react";
+import { Plus, ChevronDown, Check, ShoppingBag, ImageIcon, Minus } from "lucide-react";
 import { formatCurrency } from "@/utils/format";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import Image from "next/image";
 
 export type PriceOption = { size: string; price: number };
@@ -15,13 +15,20 @@ export type CardProduct = {
 };
 
 export default function ProductCard({ product }: { product: CardProduct }) {
-  const { addItem } = useCart();
+  const { addItem, items, updateQuantity, removeItem } = useCart();
   const [selected, setSelected] = useState<PriceOption>(product.prices[0]);
   const [isAdded, setIsAdded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [imageError, setImageError] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
+
+  // Calculate the quantity of this specific product variant in cart
+  const cartQuantity = useMemo(() => {
+    const itemId = `${product.id}:${selected.size}`;
+    const cartItem = items.find(item => item.id === itemId);
+    return cartItem ? cartItem.quantity : 0;
+  }, [items, product.id, selected.size]);
 
   // Magic scroll effect
   useEffect(() => {
@@ -46,16 +53,52 @@ export default function ProductCard({ product }: { product: CardProduct }) {
   }, []);
 
   const handleAdd = () => {
-    addItem({
-      id: `${product.id}:${selected.size}`,
-      name: `${product.name} – ${selected.size}`,
-      price: selected.price,
-      quantity: 1,
-    });
+    const itemId = `${product.id}:${selected.size}`;
+    const existingItem = items.find(item => item.id === itemId);
+    
+    if (existingItem) {
+      updateQuantity(itemId, existingItem.quantity + 1);
+    } else {
+      addItem({
+        id: itemId,
+        name: `${product.name} – ${selected.size}`,
+        price: selected.price,
+        quantity: 1,
+      });
+    }
     
     // Show success animation with longer duration
     setIsAdded(true);
     setTimeout(() => setIsAdded(false), 2500);
+  };
+
+  const handleIncrement = () => {
+    const itemId = `${product.id}:${selected.size}`;
+    const existingItem = items.find(item => item.id === itemId);
+    
+    if (existingItem) {
+      updateQuantity(itemId, existingItem.quantity + 1);
+    } else {
+      addItem({
+        id: itemId,
+        name: `${product.name} – ${selected.size}`,
+        price: selected.price,
+        quantity: 1,
+      });
+    }
+  };
+
+  const handleDecrement = () => {
+    const itemId = `${product.id}:${selected.size}`;
+    const existingItem = items.find(item => item.id === itemId);
+    
+    if (existingItem) {
+      if (existingItem.quantity > 1) {
+        updateQuantity(itemId, existingItem.quantity - 1);
+      } else {
+        removeItem(itemId);
+      }
+    }
   };
 
   // Generate image path based on product id
@@ -137,47 +180,72 @@ export default function ProductCard({ product }: { product: CardProduct }) {
             <ChevronDown className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
           </div>
 
-          {/* Add to Cart Button */}
-          <button 
-            className={`btn w-full relative overflow-hidden transition-all duration-300 transform ${
-              isAdded 
-                ? 'bg-earth-500 hover:bg-earth-600 text-white scale-105 shadow-xl' 
-                : 'btn-primary hover:scale-102'
-            }`} 
-            onClick={handleAdd}
-          >
-            <span className={`flex items-center justify-center transition-all duration-300 ${
-              isAdded ? 'scale-110' : ''
-            }`}>
-              {isAdded ? (
+          {/* Add to Cart Button or Quantity Controls */}
+          {cartQuantity === 0 ? (
+            <button 
+              className={`btn w-full relative overflow-hidden transition-all duration-300 transform ${
+                isAdded 
+                  ? 'bg-earth-500 hover:bg-earth-600 text-white scale-105 shadow-xl' 
+                  : 'btn-primary hover:scale-102'
+              }`} 
+              onClick={handleAdd}
+            >
+              <span className={`flex items-center justify-center transition-all duration-300 ${
+                isAdded ? 'scale-110' : ''
+              }`}>
+                {isAdded ? (
+                  <>
+                    <Check className="h-5 w-5 mr-2 animate-bounce" />
+                    <span className="font-semibold">Added to Cart!</span>
+                  </>
+                ) : (
+                  <>
+                    <ShoppingBag className="h-4 w-4 mr-2" />
+                    Add to Cart
+                  </>
+                )}
+              </span>
+              
+              {/* Multiple ripple effects for emphasis */}
+              {isAdded && (
                 <>
-                  <Check className="h-5 w-5 mr-2 animate-bounce" />
-                  <span className="font-semibold">Added to Cart!</span>
-                </>
-              ) : (
-                <>
-                  <ShoppingBag className="h-4 w-4 mr-2" />
-                  Add to Cart
+                  <span className="absolute inset-0 bg-white/30 animate-ping" />
+                  <span className="absolute inset-0 bg-earth-400/20 animate-pulse" />
                 </>
               )}
-            </span>
-            
-            {/* Multiple ripple effects for emphasis */}
-            {isAdded && (
-              <>
-                <span className="absolute inset-0 bg-white/30 animate-ping" />
-                <span className="absolute inset-0 bg-earth-400/20 animate-pulse" />
-              </>
-            )}
-          </button>
+            </button>
+          ) : (
+            <div className="flex items-center justify-between bg-gradient-to-r from-earth-50 to-brand-50 rounded-2xl p-2">
+              <button
+                onClick={handleDecrement}
+                className="btn btn-sm bg-white hover:bg-earth-100 text-earth-600 shadow-sm"
+                aria-label="Decrease quantity"
+              >
+                <Minus className="h-4 w-4" />
+              </button>
+              <div className="flex flex-col items-center px-4">
+                <span className="text-lg font-bold text-earth-700">{cartQuantity}</span>
+                <span className="text-xs text-earth-500">in cart</span>
+              </div>
+              <button
+                onClick={handleIncrement}
+                className="btn btn-sm bg-earth-600 hover:bg-earth-700 text-white shadow-sm"
+                aria-label="Increase quantity"
+              >
+                <Plus className="h-4 w-4" />
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Price Display */}
         <div className="pt-3 border-t border-neutral-200">
           <div className="flex items-baseline justify-between">
-            <span className="text-xs text-neutral-500 font-medium">Starting from</span>
+            <span className="text-xs text-neutral-500 font-medium">
+              {cartQuantity > 0 ? `Subtotal (${cartQuantity})` : 'Starting from'}
+            </span>
             <span className="text-xl font-bold bg-gradient-to-r from-earth-600 to-brand-500 bg-clip-text text-transparent">
-              {formatCurrency(selected.price)}
+              {formatCurrency(cartQuantity > 0 ? selected.price * cartQuantity : selected.price)}
             </span>
           </div>
         </div>
