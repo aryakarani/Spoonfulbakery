@@ -59,7 +59,7 @@ export default function HomePage() {
                 <div className="relative">
                   <h1 className="text-5xl sm:text-7xl font-bold text-neutral-900 tracking-tight leading-[1.1] animate-slide-up animation-delay-100">
                     Where Every Bite
-                    <span className="block gradient-subtle-sage bg-clip-text text-transparent mt-3">
+                    <span className="block text-neutral-900 mt-3">
                       Tells a Story
                     </span>
                   </h1>
