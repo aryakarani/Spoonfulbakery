@@ -5,30 +5,31 @@
 @tailwind utilities;
 
 :root {
-  --brand-bg: #FFFFFF;
-  --brand-ink: #3A322C;
-  --brand-accent: #7FA55F;
-  --brand-warm: #D4A574;
-  --brand-soft: #F5F2ED;
+  --brand-bg: #FDFCFB;
+  --brand-ink: #2D2926;
+  --brand-accent: #C8A882;
+  --brand-warm: #FF9270;
+  --brand-soft: #FAF7F5;
+  --brand-sage: #7B9B6F;
   --shadow-color: 24deg 10% 50%;
   --shadow-elevation-low:
-    0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.05),
-    0.4px 0.8px 1px -1.2px hsl(var(--shadow-color) / 0.05),
-    1px 2px 2.5px -2.5px hsl(var(--shadow-color) / 0.05);
+    0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.03),
+    0.4px 0.8px 1px -1.2px hsl(var(--shadow-color) / 0.03),
+    1px 2px 2.5px -2.5px hsl(var(--shadow-color) / 0.03);
   --shadow-elevation-medium:
-    0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.06),
-    0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.06),
-    2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.06),
-    5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.06);
+    0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.04),
+    0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.04),
+    2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.04),
+    5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.04);
   --shadow-elevation-high:
-    0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.05),
-    1.5px 2.9px 3.7px -0.4px hsl(var(--shadow-color) / 0.05),
-    2.7px 5.4px 6.8px -0.7px hsl(var(--shadow-color) / 0.05),
-    4.5px 8.9px 11.2px -1.1px hsl(var(--shadow-color) / 0.05),
-    7.1px 14.3px 18px -1.4px hsl(var(--shadow-color) / 0.05),
-    11.2px 22.3px 28.1px -1.8px hsl(var(--shadow-color) / 0.05),
-    17px 33.9px 42.7px -2.1px hsl(var(--shadow-color) / 0.05),
-    25px 50px 62.9px -2.5px hsl(var(--shadow-color) / 0.05);
+    0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.03),
+    1.5px 2.9px 3.7px -0.4px hsl(var(--shadow-color) / 0.03),
+    2.7px 5.4px 6.8px -0.7px hsl(var(--shadow-color) / 0.03),
+    4.5px 8.9px 11.2px -1.1px hsl(var(--shadow-color) / 0.03),
+    7.1px 14.3px 18px -1.4px hsl(var(--shadow-color) / 0.03),
+    11.2px 22.3px 28.1px -1.8px hsl(var(--shadow-color) / 0.03),
+    17px 33.9px 42.7px -2.1px hsl(var(--shadow-color) / 0.03),
+    25px 50px 62.9px -2.5px hsl(var(--shadow-color) / 0.03);
 }
 
 * {
@@ -48,9 +49,11 @@ body {
 }
 
 body {
-  @apply bg-white text-chocolate antialiased;
+  @apply bg-cream text-chocolate antialiased;
   font-family: 'Lato', system-ui, -apple-system, sans-serif;
   font-optical-sizing: auto;
+  background: linear-gradient(180deg, #FDFCFB 0%, #FAF7F5 100%);
+  min-height: 100vh;
 }
 
 /* Typography */
@@ -84,7 +87,7 @@ p, .body-text {
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-earth-300 rounded-full;
+  @apply bg-brand-300 rounded-full;
 }
 
 /* Container and spacing */
@@ -94,7 +97,7 @@ p, .body-text {
 
 /* Button styles with enhanced interactions */
 .btn {
-  @apply inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-earth-400 focus-visible:ring-offset-2 active:scale-95 touch-manipulation select-none;
+  @apply inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 active:scale-95 touch-manipulation select-none;
   font-family: 'Lato', system-ui, sans-serif;
   font-weight: 500;
 }
@@ -108,21 +111,21 @@ p, .body-text {
 }
 
 .btn-primary {
-  @apply bg-gradient-to-b from-earth-500 to-earth-600 text-white shadow-md hover:shadow-lg hover:from-earth-600 hover:to-earth-700;
-  box-shadow: var(--shadow-elevation-low);
+  @apply bg-gradient-to-b from-brand-500 to-brand-600 text-white shadow-md hover:shadow-lg hover:from-brand-600 hover:to-brand-700;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 .btn-primary:hover {
-  box-shadow: var(--shadow-elevation-medium);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.12);
   transform: translateY(-1px);
 }
 
 .btn-outline {
-  @apply border border-earth-300 text-earth-700 hover:bg-earth-50 hover:border-earth-400;
+  @apply border border-brand-300 text-brand-700 hover:bg-brand-50 hover:border-brand-400;
 }
 
 .btn-ghost {
-  @apply text-earth-700 hover:bg-earth-50;
+  @apply text-brand-700 hover:bg-brand-50;
 }
 
 /* Card styles with depth */
@@ -331,7 +334,7 @@ p, .body-text {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(127, 165, 95, 0) 0%, rgba(127, 165, 95, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(200, 168, 130, 0) 0%, rgba(200, 168, 130, 0.05) 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -394,4 +397,106 @@ p, .body-text {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   pointer-events: none;
   border-radius: inherit;
+}
+
+/* Orbiting animation for desserts */
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(120px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(120px) rotate(-360deg);
+  }
+}
+
+@keyframes orbit-reverse {
+  0% {
+    transform: rotate(0deg) translateX(150px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg) translateX(150px) rotate(360deg);
+  }
+}
+
+@keyframes orbit-slow {
+  0% {
+    transform: rotate(0deg) translateX(180px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(180px) rotate(-360deg);
+  }
+}
+
+/* Orbit container and items */
+.orbit-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.orbit-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  animation: orbit 20s linear infinite;
+  will-change: transform;
+}
+
+.orbit-item-1 {
+  animation: orbit 25s linear infinite;
+  animation-delay: 0s;
+}
+
+.orbit-item-2 {
+  animation: orbit-reverse 30s linear infinite;
+  animation-delay: -5s;
+}
+
+.orbit-item-3 {
+  animation: orbit-slow 35s linear infinite;
+  animation-delay: -10s;
+}
+
+.orbit-item-4 {
+  animation: orbit 28s linear infinite;
+  animation-delay: -15s;
+}
+
+.orbit-item-5 {
+  animation: orbit-reverse 32s linear infinite;
+  animation-delay: -20s;
+}
+
+.orbit-item-6 {
+  animation: orbit-slow 40s linear infinite;
+  animation-delay: -25s;
+}
+
+/* Dessert icons styling */
+.dessert-icon {
+  @apply text-4xl sm:text-5xl opacity-60 hover:opacity-80 transition-opacity;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* Improved gradient backgrounds */
+.gradient-mesh {
+  background-image: 
+    radial-gradient(at 40% 20%, hsla(28, 90%, 85%, 0.3) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, hsla(189, 70%, 85%, 0.2) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(355, 85%, 93%, 0.3) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, hsla(340, 80%, 91%, 0.2) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(22, 90%, 92%, 0.3) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, hsla(242, 70%, 90%, 0.2) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(343, 80%, 91%, 0.2) 0px, transparent 50%);
+  background-color: var(--brand-bg);
+}
+
+.gradient-warm {
+  background: linear-gradient(135deg, #FAF7F5 0%, #FFE8E1 50%, #F5EDE7 100%);
+}
+
+.gradient-sage {
+  background: linear-gradient(135deg, #F0F4ED 0%, #E2E9DD 50%, #CBD8C3 100%);
 }

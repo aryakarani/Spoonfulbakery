@@ -10,51 +10,68 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Earthy brown palette
+        // Primary palette - sophisticated neutral with warmth
         brand: {
-          50: '#FAF8F5',
-          100: '#F5F0E8',
-          200: '#E8DFD3',
-          300: '#D4C4B0',
-          400: '#BCA58C',
-          500: '#9B8368',  // Main earthy brown
-          600: '#7D6A55',
-          700: '#5F5043',
-          800: '#443A32',
-          900: '#2C251F'
+          50: '#FDFCFB',
+          100: '#FAF7F5',
+          200: '#F5EDE7',
+          300: '#EBDDD4',
+          400: '#DCC5B4',
+          500: '#C8A882',  // Main brand color - warm gold
+          600: '#B08968',
+          700: '#8F6A4E',
+          800: '#6B4E3A',
+          900: '#4A3528'
         },
-        // Earthy green palette
+        // Accent palette - modern sage green
         earth: {
-          50: '#F7FAF5',
-          100: '#EFF5E9',
-          200: '#DDE8D2',
-          300: '#C2D5B0',
-          400: '#A3BD8A',
-          500: '#7FA55F',  // Main earthy green
-          600: '#658C4A',
-          700: '#4E6E39',
-          800: '#3A522B',
-          900: '#263619'
+          50: '#F8FAF7',
+          100: '#F0F4ED',
+          200: '#E2E9DD',
+          300: '#CBD8C3',
+          400: '#A8BF9F',
+          500: '#7B9B6F',  // Modern sage green
+          600: '#5F7A55',
+          700: '#4A5F43',
+          800: '#384835',
+          900: '#2A352A'
         },
-        // Warm accent colors
+        // Secondary accent - soft coral/peach
         warm: {
-          50: '#FDF9F3',
-          100: '#FBF3E7',
-          200: '#F5E4C8',
-          300: '#EDD2A4',
-          400: '#E2BA7F',
-          500: '#D4A574',  // Warm accent
-          600: '#B88D5E',
-          700: '#936F49',
-          800: '#6E5337',
-          900: '#493625'
+          50: '#FFF9F7',
+          100: '#FFF2ED',
+          200: '#FFE4DB',
+          300: '#FFCDB8',
+          400: '#FFB094',
+          500: '#FF9270',  // Soft coral
+          600: '#F07050',
+          700: '#D85540',
+          800: '#B84438',
+          900: '#8F3530'
+        },
+        // Neutral grays - modern and clean
+        neutral: {
+          50: '#FAFAFA',
+          100: '#F5F5F5',
+          200: '#E5E5E5',
+          300: '#D4D4D4',
+          400: '#A3A3A3',
+          500: '#737373',
+          600: '#525252',
+          700: '#404040',
+          800: '#262626',
+          900: '#171717'
         },
         // Base colors
-        cream: '#FFFFFF',  // Changed to pure white
-        chocolate: '#3A322C',  // Darker earthy brown for text
-        sage: '#A8C09A',  // Soft sage green
-        sand: '#F5F2ED',  // Light sand color for subtle backgrounds
-        terracotta: '#C17767'  // Terracotta accent
+        cream: '#FDFCFB',  // Soft off-white
+        chocolate: '#2D2926',  // Rich dark brown for text
+        sage: '#A8BF9F',  // Soft sage green
+        sand: '#FAF7F5',  // Light warm sand
+        terracotta: '#E8A598',  // Soft terracotta
+        // New additions for modern feel
+        pearl: '#FFFEFA',  // Ultra light cream
+        charcoal: '#1A1815',  // Deep charcoal for contrast
+        blush: '#FFE8E1',  // Soft blush accent
       },
       boxShadow: {
         soft: '0 4px 20px rgba(0,0,0,0.04)',
