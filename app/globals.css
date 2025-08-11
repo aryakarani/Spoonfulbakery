@@ -7,11 +7,11 @@
 :root {
   --brand-bg: #FFFFFF;
   --brand-ink: #2D2926;
-  --brand-accent: #A8936F;
-  --brand-warm: #D4A574;
+  --brand-accent: #895129;
+  --brand-warm: #AE6A3E;
   --brand-soft: #FAF7F5;
-  --brand-sage: #8B9F7B;
-  --brand-earth: #9B8B6F;
+  --brand-sage: #028E41;
+  --brand-earth: #895129;
   --shadow-color: 24deg 10% 50%;
   --shadow-elevation-low:
     0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.03),
@@ -113,19 +113,19 @@ p, .body-text {
 
 .btn-primary {
   @apply text-white shadow-md hover:shadow-lg;
-  background: linear-gradient(135deg, #60C39A 0%, #46AD86 100%);
+  background: linear-gradient(135deg, #028E41 0%, #016B32 100%);
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #46AD86 0%, #60C39A 100%);
+  background: linear-gradient(135deg, #016B32 0%, #028E41 100%);
   box-shadow: 0 3px 6px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.12);
   transform: translateY(-1px);
 }
 
 .btn-outline {
   @apply border text-earth-700 hover:bg-earth-50;
-  border-color: #60C39A;
+  border-color: #028E41;
 }
 
 .btn-ghost {
@@ -338,7 +338,7 @@ p, .body-text {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(157, 119, 85, 0) 0%, rgba(157, 119, 85, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(137, 81, 41, 0) 0%, rgba(137, 81, 41, 0.05) 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -529,24 +529,24 @@ p, .body-text {
 /* Improved gradient backgrounds with earthy tones */
 .gradient-mesh {
   background-image: 
-    radial-gradient(at 40% 20%, rgba(63, 127, 93, 0.14) 0px, transparent 50%),
-    radial-gradient(at 80% 0%, rgba(125, 84, 54, 0.10) 0px, transparent 50%),
-    radial-gradient(at 0% 50%, rgba(212, 165, 116, 0.08) 0px, transparent 50%),
-    radial-gradient(at 80% 50%, rgba(47, 109, 77, 0.12) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, rgba(75, 53, 34, 0.10) 0px, transparent 50%),
-    radial-gradient(at 80% 100%, rgba(62, 127, 93, 0.08) 0px, transparent 50%),
-    radial-gradient(at 0% 0%, rgba(47, 109, 77, 0.10) 0px, transparent 50%);
+    radial-gradient(at 40% 20%, rgba(2, 142, 65, 0.10) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(137, 81, 41, 0.08) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(174, 106, 62, 0.06) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, rgba(2, 142, 65, 0.08) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(137, 81, 41, 0.06) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, rgba(2, 142, 65, 0.06) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, rgba(2, 142, 65, 0.06) 0px, transparent 50%);
   background-color: transparent;
 }
 
 .gradient-warm {
-  background: linear-gradient(135deg, #FFFFFF 0%, rgba(212, 165, 116, 0.10) 50%, #FFFFFF 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, rgba(174, 106, 62, 0.10) 50%, #FFFFFF 100%);
 }
 
 .gradient-sage {
-  background: linear-gradient(135deg, #FFFFFF 0%, rgba(62, 127, 93, 0.14) 50%, #FFFFFF 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, rgba(2, 142, 65, 0.12) 50%, #FFFFFF 100%);
 }
 
 .gradient-earth {
-  background: linear-gradient(135deg, rgba(62, 127, 93, 0.06) 0%, rgba(125, 84, 54, 0.10) 100%);
+  background: linear-gradient(135deg, rgba(137, 81, 41, 0.06) 0%, rgba(2, 142, 65, 0.08) 100%);
 }

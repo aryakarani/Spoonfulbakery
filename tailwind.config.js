@@ -10,46 +10,46 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Primary palette - light caramel browns (kawaii bakery vibe)
+        // Brand palette - brown centered on #895129
         brand: {
-          50:  '#FFF9F5',
-          100: '#FCEFE5',
-          200: '#F6E0CF',
-          300: '#EBC9AD',
-          400: '#D9AB86',
-          500: '#C48A62',
-          600: '#A9704F',
-          700: '#8C5A41',
-          800: '#6E4634',
-          900: '#573829'
+          50:  '#FFF9F7',
+          100: '#FCEFEA',
+          200: '#F6E1D6',
+          300: '#EBC8B5',
+          400: '#D9A283',
+          500: '#AE6A3E',
+          600: '#895129', // primary brand brown
+          700: '#6F3F26',
+          800: '#55311E',
+          900: '#3E2416'
         },
-        // Accent palette - pastel pistachio greens
+        // Accent palette - green centered on #028E41
         earth: {
-          50:  '#F6FBF6',
-          100: '#EAF7EF',
-          200: '#D6F0E1',
-          300: '#BCE6D0',
-          400: '#8FD6B6',
-          500: '#60C39A',
-          600: '#46AD86',
-          700: '#389273',
-          800: '#2F765F',
-          900: '#275F4E'
+          50:  '#E6F7EE',
+          100: '#C9F0DE',
+          200: '#95E2BF',
+          300: '#5FD49E',
+          400: '#2AC67D',
+          500: '#0DA95F',
+          600: '#028E41', // primary accent green
+          700: '#027436',
+          800: '#025C2C',
+          900: '#014A24'
         },
-        // Secondary accent - warm peach/rose tones
+        // Secondary accent mapped to subtle brown tints to keep palette minimal
         warm: {
-          50: '#FFF7F8',
-          100: '#FFEFF1',
-          200: '#FFDDE1',
-          300: '#FFC5CB',
-          400: '#FF9FB0',
-          500: '#FF7A96',
-          600: '#E85E7E',
-          700: '#C94D69',
-          800: '#A03E55',
-          900: '#7F3245'
+          50:  '#FFF9F7',
+          100: '#FCEFEA',
+          200: '#F6E1D6',
+          300: '#EBC8B5',
+          400: '#D9A283',
+          500: '#AE6A3E',
+          600: '#895129',
+          700: '#6F3F26',
+          800: '#55311E',
+          900: '#3E2416'
         },
-        // Neutral grays - modern and clean
+        // Neutral grays - keep for readability
         neutral: {
           50: '#FAFAFA',
           100: '#F5F5F5',
@@ -62,16 +62,15 @@ export default {
           800: '#262626',
           900: '#171717'
         },
-        // Base colors (lightened accents)
+        // Base colors
         cream: '#FFFFFF',
         chocolate: '#2D2926',
-        sage: '#60C39A',
-        sand: '#FEFAF6',
-        terracotta: '#C48A62',
-        // New additions for modern feel
+        sage: '#028E41',
+        sand: '#FFFFFF',
+        terracotta: '#895129',
+        // Minimal additions
         pearl: '#FFFFFF',
-        charcoal: '#1A1815',
-        blush: '#FFEFF1'
+        charcoal: '#1A1815'
       },
       boxShadow: {
         soft: '0 4px 20px rgba(0,0,0,0.04)',
