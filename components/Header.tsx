@@ -46,21 +46,21 @@ export default function Header() {
   return (
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'glass shadow-lg' : 'bg-white/95 backdrop-blur shadow-sm'} safe-top`}>
-        <div className="container-gutter h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group" onClick={() => setMobileMenuOpen(false)}>
+        <div className={`container-gutter flex items-center justify-between transition-all ${scrolled ? 'h-12 md:h-14' : 'h-20 md:h-24'}`}>
+          <Link href="/" className="flex items-center gap-3 group" onClick={() => setMobileMenuOpen(false)}>
             <Image 
               src={logoSrc} 
               alt="Spoonful Bakery" 
-              width={40} 
-              height={40} 
-              className="rounded-lg transition-transform group-hover:scale-105" 
+              width={56} 
+              height={56} 
+              className={`${scrolled ? 'h-9 w-9' : 'h-14 w-14'} rounded-lg transition-all group-hover:scale-105`} 
               onError={() => setLogoSrc("/logo.png")} 
             />
             <div className="flex flex-col">
-              <span className="brand-name text-2xl text-brand-600 leading-tight transition-all group-hover:tracking-tight">
+              <span className={`brand-name text-brand-600 leading-tight transition-all ${scrolled ? 'text-xl' : 'text-3xl'}`}>
                 Spoonful
               </span>
-              <span className="brand-name text-lg text-earth-600 -mt-2">
+              <span className={`brand-name text-earth-600 transition-all ${scrolled ? '-mt-1 text-sm' : '-mt-2 text-xl'}`}>
                 Bakery
               </span>
             </div>
@@ -101,11 +101,9 @@ export default function Header() {
               onClick={openCart}
             >
               <ShoppingBag className={`h-4 w-4 ${cartAnimating ? 'animate-pulse' : ''}`} />
-              {totalQuantity > 0 && (
-                <span className={`absolute -top-1 -right-1 bg-earth-700 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center ${cartAnimating ? 'animate-ping' : 'animate-scale-in'}`}>
-                  {totalQuantity}
-                </span>
-              )}
+              <span className={`absolute -top-1 -right-1 bg-earth-700 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center ${cartAnimating ? 'animate-ping' : 'animate-scale-in'}`}>
+                {totalQuantity}
+              </span>
             </button>
           </div>
 
@@ -117,11 +115,9 @@ export default function Header() {
               onClick={openCart}
             >
               <ShoppingBag className={`h-4 w-4 ${cartAnimating ? 'animate-pulse' : ''}`} />
-              {totalQuantity > 0 && (
-                <span className={`absolute -top-1 -right-1 bg-earth-700 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center ${cartAnimating ? 'animate-ping' : 'animate-scale-in'}`}>
-                  {totalQuantity}
-                </span>
-              )}
+              <span className={`absolute -top-1 -right-1 bg-earth-700 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center ${cartAnimating ? 'animate-ping' : 'animate-scale-in'}`}>
+                {totalQuantity}
+              </span>
             </button>
             <button
               aria-label="Toggle menu"

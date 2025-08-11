@@ -6,7 +6,6 @@ import Footer from "@/components/Footer";
 import { CartProvider } from "@/context/CartContext";
 import CartDrawer from "@/components/CartDrawer";
 import AnnouncementMarquee from "@/components/AnnouncementMarquee";
-import CartNotification from "@/components/CartNotification";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
@@ -26,7 +25,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main className="container-gutter pt-24 md:pt-20 pb-16">{children}</main>
           <Footer />
           <CartDrawer />
-          <CartNotification />
         </CartProvider>
       </body>
     </html>

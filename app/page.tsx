@@ -40,7 +40,10 @@ export default function HomePage() {
       {/* Hero Section with Animations */}
       <section id="home" className={`relative min-h-[80vh] flex items-center ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
         {/* Subtle gradient background with earthy tones */}
-        <div className="absolute inset-0 gradient-earth opacity-30"></div>
+        <div className="absolute inset-0 gradient-earth opacity-40"></div>
+        {/* Accent blobs for more lively first fold */}
+        <div className="pointer-events-none absolute -top-10 -left-10 w-64 h-64 bg-brand-200/40 rounded-full blur-3xl" aria-hidden></div>
+        <div className="pointer-events-none absolute -bottom-10 -right-10 w-72 h-72 bg-earth-200/40 rounded-full blur-3xl" aria-hidden></div>
         
         <div className="relative z-10 w-full">
           <div className="rounded-3xl bg-white/90 backdrop-blur-sm ring-1 ring-earth-200/30 overflow-hidden shadow-xl">
@@ -72,6 +75,9 @@ export default function HomePage() {
                 
                 <p className="text-lg sm:text-xl text-neutral-600 max-w-2xl leading-relaxed animate-slide-up animation-delay-200">
                   Handcrafted desserts made with premium ingredients, whole grains, and pure love. Experience the perfect blend of tradition and innovation.
+                </p>
+                <p className="text-base sm:text-lg text-earth-800/90 max-w-2xl leading-relaxed animate-slide-up animation-delay-250">
+                  Since we are a small bakery, please place your orders <span className="text-brand-600 font-semibold">5</span> days in advance.
                 </p>
                 
                 {/* CTA Buttons with earthy colors */}
