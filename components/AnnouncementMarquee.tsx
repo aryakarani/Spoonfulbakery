@@ -10,7 +10,7 @@ export default function AnnouncementMarquee() {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-earth-600 to-earth-700 text-white shadow-md rounded-2xl overflow-hidden">
+    <div className="bg-gradient-to-r from-earth-100 to-brand-100 text-earth-800 shadow-md rounded-2xl overflow-hidden">
       <div className="py-3">
         <div className="marquee" aria-label="Site announcement">
           <div className="marquee-content">
