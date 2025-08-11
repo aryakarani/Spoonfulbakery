@@ -113,19 +113,19 @@ p, .body-text {
 
 .btn-primary {
   @apply text-white shadow-md hover:shadow-lg;
-  background: linear-gradient(135deg, #8B9F7B 0%, #7B8B6F 100%);
+  background: linear-gradient(135deg, #2F6D4D 0%, #285A40 100%);
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #7B8F6B 0%, #6B7B5F 100%);
+  background: linear-gradient(135deg, #3E7F5D 0%, #2F6D4D 100%);
   box-shadow: 0 3px 6px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.12);
   transform: translateY(-1px);
 }
 
 .btn-outline {
   @apply border text-earth-700 hover:bg-earth-50;
-  border-color: #8B9F7B;
+  border-color: #3E7F5D;
 }
 
 .btn-ghost {
@@ -338,7 +338,7 @@ p, .body-text {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(200, 168, 130, 0) 0%, rgba(200, 168, 130, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(157, 119, 85, 0) 0%, rgba(157, 119, 85, 0.05) 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -406,28 +406,28 @@ p, .body-text {
 /* Orbiting animation for desserts - properly revolving around text */
 @keyframes orbit {
   from {
-    transform: rotate(0deg) translateX(200px) rotate(0deg);
+    transform: rotate(0deg) translateX(120px) rotate(0deg);
   }
   to {
-    transform: rotate(360deg) translateX(200px) rotate(-360deg);
+    transform: rotate(360deg) translateX(120px) rotate(-360deg);
   }
 }
 
 @keyframes orbit-medium {
   from {
-    transform: rotate(0deg) translateX(250px) rotate(0deg);
+    transform: rotate(0deg) translateX(160px) rotate(0deg);
   }
   to {
-    transform: rotate(-360deg) translateX(250px) rotate(360deg);
+    transform: rotate(-360deg) translateX(160px) rotate(360deg);
   }
 }
 
 @keyframes orbit-large {
   from {
-    transform: rotate(0deg) translateX(300px) rotate(0deg);
+    transform: rotate(0deg) translateX(200px) rotate(0deg);
   }
   to {
-    transform: rotate(360deg) translateX(300px) rotate(-360deg);
+    transform: rotate(360deg) translateX(200px) rotate(-360deg);
   }
 }
 
@@ -437,10 +437,45 @@ p, .body-text {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
-  height: 600px;
+  width: 320px;
+  height: 320px;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
+}
+
+/* Responsive orbit sizing */
+@media (min-width: 640px) {
+  .orbit-container { width: 420px; height: 420px; }
+}
+@media (min-width: 768px) {
+  .orbit-container { width: 520px; height: 520px; }
+  @keyframes orbit {
+    from { transform: rotate(0deg) translateX(180px) rotate(0deg); }
+    to   { transform: rotate(360deg) translateX(180px) rotate(-360deg); }
+  }
+  @keyframes orbit-medium {
+    from { transform: rotate(0deg) translateX(220px) rotate(0deg); }
+    to   { transform: rotate(-360deg) translateX(220px) rotate(360deg); }
+  }
+  @keyframes orbit-large {
+    from { transform: rotate(0deg) translateX(260px) rotate(0deg); }
+    to   { transform: rotate(360deg) translateX(260px) rotate(-360deg); }
+  }
+}
+@media (min-width: 1024px) {
+  .orbit-container { width: 600px; height: 600px; }
+  @keyframes orbit {
+    from { transform: rotate(0deg) translateX(200px) rotate(0deg); }
+    to   { transform: rotate(360deg) translateX(200px) rotate(-360deg); }
+  }
+  @keyframes orbit-medium {
+    from { transform: rotate(0deg) translateX(250px) rotate(0deg); }
+    to   { transform: rotate(-360deg) translateX(250px) rotate(360deg); }
+  }
+  @keyframes orbit-large {
+    from { transform: rotate(0deg) translateX(300px) rotate(0deg); }
+    to   { transform: rotate(360deg) translateX(300px) rotate(-360deg); }
+  }
 }
 
 .orbit-item {
@@ -494,24 +529,24 @@ p, .body-text {
 /* Improved gradient backgrounds with earthy tones */
 .gradient-mesh {
   background-image: 
-    radial-gradient(at 40% 20%, rgba(139, 159, 123, 0.15) 0px, transparent 50%),
-    radial-gradient(at 80% 0%, rgba(155, 139, 111, 0.1) 0px, transparent 50%),
+    radial-gradient(at 40% 20%, rgba(63, 127, 93, 0.14) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(125, 84, 54, 0.10) 0px, transparent 50%),
     radial-gradient(at 0% 50%, rgba(212, 165, 116, 0.08) 0px, transparent 50%),
-    radial-gradient(at 80% 50%, rgba(139, 159, 123, 0.12) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, rgba(155, 139, 111, 0.1) 0px, transparent 50%),
-    radial-gradient(at 80% 100%, rgba(168, 147, 111, 0.08) 0px, transparent 50%),
-    radial-gradient(at 0% 0%, rgba(139, 159, 123, 0.1) 0px, transparent 50%);
+    radial-gradient(at 80% 50%, rgba(47, 109, 77, 0.12) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(75, 53, 34, 0.10) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, rgba(62, 127, 93, 0.08) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, rgba(47, 109, 77, 0.10) 0px, transparent 50%);
   background-color: transparent;
 }
 
 .gradient-warm {
-  background: linear-gradient(135deg, #FFFFFF 0%, rgba(212, 165, 116, 0.1) 50%, #FFFFFF 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, rgba(212, 165, 116, 0.10) 50%, #FFFFFF 100%);
 }
 
 .gradient-sage {
-  background: linear-gradient(135deg, #FFFFFF 0%, rgba(139, 159, 123, 0.15) 50%, #FFFFFF 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, rgba(62, 127, 93, 0.14) 50%, #FFFFFF 100%);
 }
 
 .gradient-earth {
-  background: linear-gradient(135deg, rgba(139, 159, 123, 0.05) 0%, rgba(155, 139, 111, 0.08) 100%);
+  background: linear-gradient(135deg, rgba(62, 127, 93, 0.06) 0%, rgba(125, 84, 54, 0.10) 100%);
 }
