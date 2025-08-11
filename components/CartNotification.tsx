@@ -25,7 +25,7 @@ export default function CartNotification() {
 
   return (
     <div className="fixed bottom-4 right-4 z-50 animate-slide-up">
-      <div className="bg-green-500 text-white rounded-2xl shadow-2xl px-6 py-4 flex items-center gap-3 min-w-[250px]">
+      <div className="bg-earth-500 text-white rounded-2xl shadow-2xl px-6 py-4 flex items-center gap-3 min-w-[250px]">
         <div className="bg-white/20 rounded-full p-2">
           <Check className="h-5 w-5" />
         </div>

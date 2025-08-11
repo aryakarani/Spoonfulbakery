@@ -60,25 +60,12 @@ export default function HomePage() {
                     </span>
                   </h1>
                   
-                  {/* Orbiting desserts around the text - properly centered */}
-                  <div className="orbit-container">
-                    <div className="orbit-item orbit-item-1">
-                      <span className="dessert-icon">🍪</span>
-                    </div>
-                    <div className="orbit-item orbit-item-2">
-                      <span className="dessert-icon">🧁</span>
-                    </div>
-                    <div className="orbit-item orbit-item-3">
-                      <span className="dessert-icon">🎂</span>
-                    </div>
-                    <div className="orbit-item orbit-item-4">
-                      <span className="dessert-icon">🍰</span>
-                    </div>
-                    <div className="orbit-item orbit-item-5">
-                      <span className="dessert-icon">🍩</span>
-                    </div>
-                    <div className="orbit-item orbit-item-6">
-                      <span className="dessert-icon">🥐</span>
+                  {/* Kawaii floating cupcake with sparkles */}
+                  <div className="pointer-events-none absolute -top-6 right-0 sm:-top-8 sm:-right-4 select-none" aria-hidden>
+                    <div className="relative">
+                      <span className="text-6xl sm:text-7xl animate-float drop-shadow">🧁</span>
+                      <span className="absolute -top-2 -right-3 text-xl animate-pulse-soft">✨</span>
+                      <span className="absolute -bottom-2 -left-3 text-lg animate-pulse-soft" style={{animationDelay: '150ms'}}>✨</span>
                     </div>
                   </div>
                 </div>
@@ -194,17 +181,17 @@ export default function HomePage() {
 
       {/* Simple Contact CTA with modern gradient */}
       <section id="contact" className={`px-4 ${visibleSections.has('contact') ? 'scroll-emerge' : 'opacity-0'}`}>
-        <div className="rounded-3xl bg-gradient-to-br from-earth-600 via-earth-700 to-brand-700 p-12 sm:p-16 text-center text-white max-w-4xl mx-auto shadow-2xl">
+        <div className="rounded-3xl bg-gradient-to-br from-earth-100 via-brand-100 to-warm-100 p-12 sm:p-16 text-center text-earth-900 max-w-4xl mx-auto shadow-2xl">
           <div className="space-y-6">
             <h2 className="text-3xl sm:text-5xl font-bold">Ready to Indulge?</h2>
-            <p className="text-white/90 text-lg sm:text-xl max-w-2xl mx-auto">
+            <p className="text-neutral-700 text-lg sm:text-xl max-w-2xl mx-auto">
               Order your favorite treats now and get them delivered fresh to your doorstep
             </p>
             <a
               href={buildWhatsAppOrderLink()}
               target="_blank"
               rel="noreferrer"
-              className="btn bg-white text-earth-700 hover:bg-pearl hover:shadow-2xl group inline-flex btn-lg transition-all"
+              className="btn bg-earth-600 text-white hover:bg-earth-500 hover:shadow-2xl group inline-flex btn-lg transition-all"
             >
               <Phone className="mr-2 h-5 w-5 group-hover:animate-pulse-soft" />
               Start Your Order

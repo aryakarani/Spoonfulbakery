@@ -141,7 +141,7 @@ export default function ProductCard({ product }: { product: CardProduct }) {
           <button 
             className={`btn w-full relative overflow-hidden transition-all duration-300 transform ${
               isAdded 
-                ? 'bg-green-500 hover:bg-green-600 text-white scale-105 shadow-xl' 
+                ? 'bg-earth-500 hover:bg-earth-600 text-white scale-105 shadow-xl' 
                 : 'btn-primary hover:scale-102'
             }`} 
             onClick={handleAdd}
@@ -166,7 +166,7 @@ export default function ProductCard({ product }: { product: CardProduct }) {
             {isAdded && (
               <>
                 <span className="absolute inset-0 bg-white/30 animate-ping" />
-                <span className="absolute inset-0 bg-green-400/20 animate-pulse" />
+                <span className="absolute inset-0 bg-earth-400/20 animate-pulse" />
               </>
             )}
           </button>
