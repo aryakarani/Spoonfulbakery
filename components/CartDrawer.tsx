@@ -29,16 +29,15 @@ export default function CartDrawer() {
         isOpen ? "translate-x-0" : "translate-x-full"
       }`}>
         {/* Header */}
-        <div className="flex items-center justify-between p-5 border-b border-brand-100 bg-gradient-to-r from-brand-50 to-cream">
-          <div className="flex items-center gap-3">
-            <ShoppingBag className="h-5 w-5 text-brand-600" />
-            <h3 className="text-lg font-semibold text-chocolate">
-              Your Cart {totalQuantity > 0 && (
-                <span className="ml-2 px-2 py-0.5 bg-brand-600 text-white text-xs rounded-full">
+        <div className="flex items-center justify-between p-5 border-b border-earth-100 bg-gradient-to-r from-earth-50 to-pearl">
+          <div className="flex items-center">
+            <ShoppingBag className="h-5 w-5 text-earth-600" />
+            <h2 className="text-xl font-semibold ml-2">
+              Your Cart
+                <span className="ml-2 px-2 py-0.5 bg-earth-600 text-white text-xs rounded-full">
                   {totalQuantity}
                 </span>
-              )}
-            </h3>
+            </h2>
           </div>
           <button 
             aria-label="Close cart" 
@@ -100,7 +99,7 @@ export default function CartDrawer() {
                         <Plus className="h-3 w-3" />
                       </button>
                     </div>
-                    <p className="font-semibold text-brand-600">
+                    <p className="font-semibold text-earth-600">
                       {formatCurrency(item.price * item.quantity)}
                     </p>
                   </div>
@@ -110,16 +109,15 @@ export default function CartDrawer() {
           )}
         </div>
 
-        {/* Footer */}
-        <div className="absolute bottom-0 left-0 right-0 bg-white border-t border-brand-100 p-5 space-y-4 safe-bottom">
-          {!isEmpty && (
-            <div className="flex items-center justify-between pb-3 border-b border-brand-100">
+        {/* Footer with totals and checkout */}
+        <div className="absolute bottom-0 left-0 right-0 bg-white border-t border-earth-100 p-5 space-y-4 safe-bottom">
+          {/* Totals */}
+          <div className="flex items-center justify-between pb-3 border-b border-earth-100">
               <span className="text-chocolate/70 font-medium">Subtotal</span>
               <span className="text-2xl font-bold text-chocolate">
                 {formatCurrency(totalAmount)}
               </span>
             </div>
-          )}
           
           <div className="flex gap-3">
             {!isEmpty && (

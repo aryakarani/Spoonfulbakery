@@ -72,7 +72,7 @@ export default function ProductCard({ product }: { product: CardProduct }) {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Product Image Section */}
-      <div className="relative h-48 sm:h-56 bg-gradient-to-br from-neutral-100 to-brand-50 overflow-hidden">
+      <div className="relative h-48 sm:h-56 bg-gradient-to-br from-neutral-100 to-earth-50 overflow-hidden">
         {!imageError ? (
           <Image
             src={imagePath}
@@ -90,7 +90,7 @@ export default function ProductCard({ product }: { product: CardProduct }) {
               <ImageIcon className="h-12 w-12 text-neutral-300 mx-auto" />
               <div className="px-4">
                 <p className="text-xs text-neutral-500 font-medium">Add image to:</p>
-                <p className="text-xs text-brand-600 font-mono bg-white/80 px-2 py-1 rounded mt-1">
+                <p className="text-xs text-earth-600 font-mono bg-white/80 px-2 py-1 rounded mt-1">
                   /public{imagePath}
                 </p>
               </div>
@@ -121,7 +121,7 @@ export default function ProductCard({ product }: { product: CardProduct }) {
           <div className="relative">
             <select
               aria-label="Select size"
-              className="w-full appearance-none bg-neutral-50 border border-neutral-200 rounded-2xl px-4 py-3 pr-10 text-sm font-medium text-neutral-700 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent transition-all cursor-pointer hover:bg-brand-50"
+              className="w-full appearance-none bg-neutral-50 border border-neutral-200 rounded-2xl px-4 py-3 pr-10 text-sm font-medium text-neutral-700 focus:outline-none focus:ring-2 focus:ring-earth-400 focus:border-transparent transition-all cursor-pointer hover:bg-earth-50"
               value={selected.size}
               onChange={(e) => {
                 const opt = product.prices.find((p) => p.size === e.target.value)!;
@@ -176,7 +176,7 @@ export default function ProductCard({ product }: { product: CardProduct }) {
         <div className="pt-3 border-t border-neutral-200">
           <div className="flex items-baseline justify-between">
             <span className="text-xs text-neutral-500 font-medium">Starting from</span>
-            <span className="text-xl font-bold bg-gradient-to-r from-brand-600 to-warm-500 bg-clip-text text-transparent">
+            <span className="text-xl font-bold bg-gradient-to-r from-earth-600 to-brand-500 bg-clip-text text-transparent">
               {formatCurrency(selected.price)}
             </span>
           </div>
@@ -184,7 +184,7 @@ export default function ProductCard({ product }: { product: CardProduct }) {
       </div>
 
       {/* Hover Effect Overlay */}
-      <div className={`absolute inset-0 bg-gradient-to-t from-brand-100/20 to-transparent pointer-events-none transition-opacity duration-300 ${
+      <div className={`absolute inset-0 bg-gradient-to-t from-earth-100/20 to-transparent pointer-events-none transition-opacity duration-300 ${
         isHovered ? 'opacity-100' : 'opacity-0'
       }`} />
     </div>

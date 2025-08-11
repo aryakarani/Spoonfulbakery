@@ -57,10 +57,10 @@ export default function Header() {
               onError={() => setLogoSrc("/logo.png")} 
             />
             <div className="flex flex-col">
-              <span className="brand-name text-2xl text-brand-700 leading-tight transition-all group-hover:tracking-tight">
+              <span className="brand-name text-2xl text-brand-600 leading-tight transition-all group-hover:tracking-tight">
                 Spoonful
               </span>
-              <span className="brand-name text-lg text-earth-500 -mt-2">
+              <span className="brand-name text-lg text-earth-600 -mt-2">
                 Bakery
               </span>
             </div>

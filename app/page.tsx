@@ -39,28 +39,28 @@ export default function HomePage() {
     <div className="space-y-24 sm:space-y-32">
       {/* Hero Section with Animations */}
       <section id="home" className={`relative min-h-[80vh] flex items-center ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-        {/* Subtle gradient background */}
-        <div className="absolute inset-0 gradient-mesh opacity-40"></div>
+        {/* Subtle gradient background with earthy tones */}
+        <div className="absolute inset-0 gradient-earth opacity-30"></div>
         
         <div className="relative z-10 w-full">
-          <div className="rounded-3xl bg-white/80 backdrop-blur-sm ring-1 ring-neutral-200/50 overflow-hidden shadow-xl">
+          <div className="rounded-3xl bg-white/90 backdrop-blur-sm ring-1 ring-earth-200/30 overflow-hidden shadow-xl">
             <div className="grid lg:grid-cols-2 gap-12 items-center p-12 sm:p-16">
               <div className="space-y-8 relative">
-                {/* Badge */}
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-warm-100 to-brand-100 backdrop-blur rounded-full text-sm font-medium text-neutral-700 animate-slide-up shadow-sm">
-                  <Sparkles className="h-4 w-4 text-warm-500" />
+                {/* Badge with earthy gradient */}
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-earth-100 to-earth-200/50 backdrop-blur rounded-full text-sm font-medium text-earth-800 animate-slide-up shadow-sm">
+                  <Sparkles className="h-4 w-4 text-earth-600" />
                   Artisan Bakery • Mumbai
                 </div>
                 
                 <div className="relative">
                   <h1 className="text-5xl sm:text-7xl font-bold text-neutral-900 tracking-tight leading-[1.1] animate-slide-up animation-delay-100">
                     Where Every Bite
-                    <span className="block bg-gradient-to-r from-brand-600 to-warm-500 bg-clip-text text-transparent mt-3">
+                    <span className="block bg-gradient-to-r from-earth-500 to-earth-600 bg-clip-text text-transparent mt-3">
                       Tells a Story
                     </span>
                   </h1>
                   
-                  {/* Orbiting desserts around the text */}
+                  {/* Orbiting desserts around the text - properly centered */}
                   <div className="orbit-container hidden lg:block">
                     <div className="orbit-item orbit-item-1">
                       <span className="dessert-icon">🍪</span>
@@ -87,7 +87,7 @@ export default function HomePage() {
                   Handcrafted desserts made with premium ingredients, whole grains, and pure love. Experience the perfect blend of tradition and innovation.
                 </p>
                 
-                {/* CTA Buttons */}
+                {/* CTA Buttons with earthy colors */}
                 <div className="flex flex-col sm:flex-row gap-4 animate-slide-up animation-delay-300">
                   <a
                     href={buildWhatsAppOrderLink()}
@@ -109,8 +109,8 @@ export default function HomePage() {
               {/* Hero Image Area - Decorative gradient mesh */}
               <div className="relative h-96 lg:h-full flex items-center justify-center">
                 <div className="relative w-full h-full">
-                  {/* Beautiful gradient mesh background */}
-                  <div className="absolute inset-0 gradient-warm rounded-3xl opacity-50"></div>
+                  {/* Beautiful gradient mesh background with earthy tones */}
+                  <div className="absolute inset-0 gradient-sage rounded-3xl opacity-30"></div>
                   
                   {/* Floating elements for mobile */}
                   <div className="lg:hidden">
@@ -130,10 +130,10 @@ export default function HomePage() {
       <section id="features" className="px-4">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {[
-            { icon: ChefHat, title: "Artisan Made", desc: "Handcrafted with passion", color: "brand" },
+            { icon: ChefHat, title: "Artisan Made", desc: "Handcrafted with passion", color: "earth" },
             { icon: Heart, title: "Made with Love", desc: "Family recipes", color: "warm" },
-            { icon: Award, title: "Premium Quality", desc: "Finest ingredients", color: "earth" },
-            { icon: Clock, title: "Fresh Daily", desc: "Never frozen", color: "brand" }
+            { icon: Award, title: "Premium Quality", desc: "Finest ingredients", color: "brand" },
+            { icon: Clock, title: "Fresh Daily", desc: "Never frozen", color: "earth" }
           ].map((feature, i) => (
             <div 
               key={feature.title}
@@ -210,7 +210,7 @@ export default function HomePage() {
 
       {/* Simple Contact CTA with modern gradient */}
       <section id="contact" className={`px-4 ${visibleSections.has('contact') ? 'scroll-emerge' : 'opacity-0'}`}>
-        <div className="rounded-3xl bg-gradient-to-br from-brand-600 via-brand-700 to-neutral-800 p-12 sm:p-16 text-center text-white max-w-4xl mx-auto shadow-2xl">
+        <div className="rounded-3xl bg-gradient-to-br from-earth-600 via-earth-700 to-brand-700 p-12 sm:p-16 text-center text-white max-w-4xl mx-auto shadow-2xl">
           <div className="space-y-6">
             <h2 className="text-3xl sm:text-5xl font-bold">Ready to Indulge?</h2>
             <p className="text-white/90 text-lg sm:text-xl max-w-2xl mx-auto">
@@ -220,7 +220,7 @@ export default function HomePage() {
               href={buildWhatsAppOrderLink()}
               target="_blank"
               rel="noreferrer"
-              className="btn bg-white text-brand-700 hover:bg-cream hover:shadow-2xl group inline-flex btn-lg transition-all"
+              className="btn bg-white text-earth-700 hover:bg-pearl hover:shadow-2xl group inline-flex btn-lg transition-all"
             >
               <Phone className="mr-2 h-5 w-5 group-hover:animate-pulse-soft" />
               Start Your Order
