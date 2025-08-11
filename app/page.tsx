@@ -44,7 +44,7 @@ export default function HomePage() {
         
         <div className="relative z-10 w-full">
           <div className="rounded-3xl bg-white/90 backdrop-blur-sm ring-1 ring-earth-200/30 overflow-hidden shadow-xl">
-            <div className="grid lg:grid-cols-2 gap-12 items-center p-12 sm:p-16">
+            <div className="grid grid-cols-1 gap-12 items-center p-12 sm:p-16">
               <div className="space-y-8 relative">
                 {/* Badge with earthy gradient */}
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-earth-100 to-earth-200/50 backdrop-blur rounded-full text-sm font-medium text-earth-800 animate-slide-up shadow-sm">
@@ -61,7 +61,7 @@ export default function HomePage() {
                   </h1>
                   
                   {/* Orbiting desserts around the text - properly centered */}
-                  <div className="orbit-container hidden lg:block">
+                  <div className="orbit-container">
                     <div className="orbit-item orbit-item-1">
                       <span className="dessert-icon">🍪</span>
                     </div>
@@ -103,22 +103,6 @@ export default function HomePage() {
                     Explore Menu
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </a>
-                </div>
-              </div>
-
-              {/* Hero Image Area - Decorative gradient mesh */}
-              <div className="relative h-96 lg:h-full flex items-center justify-center">
-                <div className="relative w-full h-full">
-                  {/* Beautiful gradient mesh background with earthy tones */}
-                  <div className="absolute inset-0 gradient-sage rounded-3xl opacity-30"></div>
-                  
-                  {/* Floating elements for mobile */}
-                  <div className="lg:hidden">
-                    <div className="absolute top-10 left-10 text-5xl animate-float opacity-70">🍪</div>
-                    <div className="absolute top-20 right-10 text-4xl animate-float-delayed opacity-70">🧁</div>
-                    <div className="absolute bottom-10 left-20 text-5xl animate-float-slow opacity-70">🎂</div>
-                    <div className="absolute bottom-20 right-20 text-4xl animate-float opacity-70">🍰</div>
-                  </div>
                 </div>
               </div>
             </div>

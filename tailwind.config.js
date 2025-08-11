@@ -12,29 +12,29 @@ export default {
       colors: {
         // Primary palette - earthy mud browns
         brand: {
-          50: '#FDFCFB',
-          100: '#F9F6F3',
-          200: '#F0E9E2',
-          300: '#E2D5C8',
-          400: '#C9B5A0',
-          500: '#A8936F',  // Main brand color - light mud brown
-          600: '#8B7659',
-          700: '#6B5A45',
-          800: '#4E4133',
-          900: '#352C23'
+          50:  '#F7F4F1',
+          100: '#EDE3D9',
+          200: '#DAC4B2',
+          300: '#C2A184',
+          400: '#9D7755',
+          500: '#7A5436',  // Rich earthy brown
+          600: '#5F422A',
+          700: '#4B3522',
+          800: '#3A291A',
+          900: '#261A10'
         },
-        // Accent palette - earthy sage green
+        // Accent palette - rich earthy green
         earth: {
-          50: '#F8FAF7',
-          100: '#F0F4ED',
-          200: '#E2E9DD',
-          300: '#CBD8C3',
-          400: '#A8BF9F',
-          500: '#8B9F7B',  // Main earth green
-          600: '#708060',
-          700: '#586548',
-          800: '#424B38',
-          900: '#2E352A'
+          50:  '#F2F7F4',
+          100: '#DFEFE6',
+          200: '#BEE0CC',
+          300: '#95C9AE',
+          400: '#5FA381',
+          500: '#3E7F5D',  // Rich earthy green
+          600: '#2F6D4D',
+          700: '#285A40',
+          800: '#214534',
+          900: '#173026'
         },
         // Secondary accent - warm earth tones
         warm: {
@@ -63,9 +63,9 @@ export default {
           900: '#171717'
         },
         // Base colors
-        cream: '#FDFCFB',  // Soft off-white
+        cream: '#FFFFFF',  // Pure white base
         chocolate: '#2D2926',  // Rich dark brown for text
-        sage: '#8B9F7B',  // Soft sage green
+        sage: '#3E7F5D',  // Align with new earth 500
         sand: '#FAF7F5',  // Light warm sand
         terracotta: '#D4A574',  // Soft terracotta
         // New additions for modern feel
