@@ -72,7 +72,7 @@ export default function ProductCard({ product }: { product: CardProduct }) {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Product Image Section */}
-      <div className="relative h-48 sm:h-56 bg-gradient-to-br from-sand to-earth-50 overflow-hidden">
+      <div className="relative h-48 sm:h-56 bg-gradient-to-br from-neutral-100 to-brand-50 overflow-hidden">
         {!imageError ? (
           <Image
             src={imagePath}
@@ -87,10 +87,10 @@ export default function ProductCard({ product }: { product: CardProduct }) {
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center space-y-3">
-              <ImageIcon className="h-12 w-12 text-earth-300 mx-auto" />
+              <ImageIcon className="h-12 w-12 text-neutral-300 mx-auto" />
               <div className="px-4">
-                <p className="text-xs text-chocolate/50 font-medium">Add image to:</p>
-                <p className="text-xs text-earth-600 font-mono bg-white/80 px-2 py-1 rounded mt-1">
+                <p className="text-xs text-neutral-500 font-medium">Add image to:</p>
+                <p className="text-xs text-brand-600 font-mono bg-white/80 px-2 py-1 rounded mt-1">
                   /public{imagePath}
                 </p>
               </div>
@@ -107,10 +107,10 @@ export default function ProductCard({ product }: { product: CardProduct }) {
       <div className="p-5 space-y-4">
         {/* Product Info */}
         <div className="space-y-2">
-          <h3 className="text-lg font-semibold text-chocolate leading-tight">
+          <h3 className="text-lg font-semibold text-neutral-800 leading-tight">
             {product.name}
           </h3>
-          <p className="text-sm text-chocolate/60 line-clamp-2 leading-relaxed">
+          <p className="text-sm text-neutral-500 line-clamp-2 leading-relaxed">
             {product.description}
           </p>
         </div>
@@ -121,7 +121,7 @@ export default function ProductCard({ product }: { product: CardProduct }) {
           <div className="relative">
             <select
               aria-label="Select size"
-              className="w-full appearance-none bg-sand border border-earth-200 rounded-2xl px-4 py-3 pr-10 text-sm font-medium text-chocolate focus:outline-none focus:ring-2 focus:ring-earth-400 focus:border-transparent transition-all cursor-pointer hover:bg-earth-50"
+              className="w-full appearance-none bg-neutral-50 border border-neutral-200 rounded-2xl px-4 py-3 pr-10 text-sm font-medium text-neutral-700 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent transition-all cursor-pointer hover:bg-brand-50"
               value={selected.size}
               onChange={(e) => {
                 const opt = product.prices.find((p) => p.size === e.target.value)!;
@@ -134,7 +134,7 @@ export default function ProductCard({ product }: { product: CardProduct }) {
                 </option>
               ))}
             </select>
-            <ChevronDown className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-chocolate/50" />
+            <ChevronDown className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
           </div>
 
           {/* Add to Cart Button */}
@@ -173,10 +173,10 @@ export default function ProductCard({ product }: { product: CardProduct }) {
         </div>
 
         {/* Price Display */}
-        <div className="pt-3 border-t border-earth-100">
+        <div className="pt-3 border-t border-neutral-200">
           <div className="flex items-baseline justify-between">
-            <span className="text-xs text-chocolate/50 font-medium">Starting from</span>
-            <span className="text-xl font-bold text-earth-600">
+            <span className="text-xs text-neutral-500 font-medium">Starting from</span>
+            <span className="text-xl font-bold bg-gradient-to-r from-brand-600 to-warm-500 bg-clip-text text-transparent">
               {formatCurrency(selected.price)}
             </span>
           </div>
@@ -184,7 +184,7 @@ export default function ProductCard({ product }: { product: CardProduct }) {
       </div>
 
       {/* Hover Effect Overlay */}
-      <div className={`absolute inset-0 bg-gradient-to-t from-earth-100/20 to-transparent pointer-events-none transition-opacity duration-300 ${
+      <div className={`absolute inset-0 bg-gradient-to-t from-brand-100/20 to-transparent pointer-events-none transition-opacity duration-300 ${
         isHovered ? 'opacity-100' : 'opacity-0'
       }`} />
     </div>
