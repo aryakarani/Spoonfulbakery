@@ -8,24 +8,12 @@ export default function CartDrawer() {
   const { isOpen, closeCart, items, totalAmount, clearCart, totalQuantity, updateQuantity, removeItem } = useCart();
 
   const message = (() => {
-    if (items.length === 0) return `New Order Request`;
-    
-    // Get current date and time in India timezone
-    const indiaTime = new Date().toLocaleString('en-IN', {
-      timeZone: 'Asia/Kolkata',
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: true
-    });
-    
-    const lines = items.map((it) => `• ${it.name} × ${it.quantity} = ${formatCurrency(it.price * it.quantity)}`);
+    if (items.length === 0) return `Hi Spoonful Bakery, I would like to place an order for:`;
+
+    const lines = items.map((it) => `• ${it.quantity} × ${it.name}`);
     const orderDetails = lines.join("\n");
-    const total = `Total: ${formatCurrency(totalAmount)}`;
-    
-    return `Order Date & Time: ${indiaTime}\n\n${orderDetails}\n\n${total}`;
+
+    return `Hi Spoonful Bakery, I would like to place an order for:\n\n${orderDetails}`;
   })();
 
   const isEmpty = items.length === 0;
